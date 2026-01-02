@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 글로벌 폰트 및 기본 스타일 설정 (선택 사항) */
+:root {
+font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+line-height: 1.5;
+font-weight: 400;
+}
+
+body {
+margin: 0;
+place-content: center;
+min-width: 320px;
+min-height: 100vh;
+background-color: #ffffff;
+}
+
+/* 스무스 스크롤 효과 */
+html {
+scroll-behavior: smooth;
+}
