@@ -6,9 +6,8 @@ import {
   Building2, 
   Mail, 
   MapPin, 
-  Facebook, 
   Instagram, 
-  Twitter, 
+  Youtube,
   Menu, 
   X, 
   ArrowRight,
@@ -31,6 +30,23 @@ import {
   Map
 } from 'lucide-react';
 
+// --- Naver Blog Custom Icon Component (잘림 방지 및 꽉 찬 정자체 B 형상) ---
+const NaverIcon = ({ size = 24, className = "" }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path 
+      d="M6 2h8c3.866 0 7 2.686 7 6 0 1.933-1.067 3.633-2.652 4.5 1.585 0.867 2.652 2.567 2.652 4.5 0 3.314-3.134 6-7 6H6V2zm3 3v6h5c1.657 0 3-1.343 3-3s-1.343-3-3-3H9zm0 9v7h6c1.657 0 3-1.343 3-3s-1.343-4-3-4H9z" 
+      fill="currentColor"
+    />
+  </svg>
+);
+
 const App = () => {
   const [currentPage, setCurrentPage] = useState('landing');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,8 +61,7 @@ const App = () => {
   // 내부 섹션 이동 함수 (랜딩 페이지 내에서만 작동)
   const scrollToSection = (id) => {
     if (currentPage !== 'landing') {
-      navigate('landing');
-      // 페이지 전환 후 스크롤을 위해 약간의 지연 시간을 둠
+      setCurrentPage('landing');
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -117,7 +132,7 @@ const App = () => {
             <div className="space-y-4">
               <h1 className="text-3xl md:text-6xl lg:text-7xl font-black text-[#4A4238] leading-tight md:leading-[1.2]">
                 일본 집 구하기는?<br />
-                <span className="text-[#4A4238]">글로벌 하우징</span>
+                <span className="text-[#D4C4A8]">글로벌 하우징</span>
               </h1>
               <p className="text-2xl md:text-3xl font-bold text-gray-500 mt-8 leading-relaxed">
                 왜 모두 글로벌 하우징을 선택할까요?
@@ -131,7 +146,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* 2. Rent/Sale Selection Section */}
+      {/* 2. Rent/Sale Selection Section - 가시성 높은 카드 디자인 */}
       <section className="bg-white min-h-screen flex items-center py-20 border-b border-[#F0EFEA]">
         <div className="w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-10">
           {[
@@ -260,10 +275,9 @@ const App = () => {
     </div>
   );
 
-  
-  // --- About Us Page Content ---
+  // --- [이동됨] About Us Page Content ---
   const AboutPage = () => (
-    <div className="w-full">
+    <div className="w-full text-left">
       {/* 1. Vision Section */}
       <section className="relative min-h-screen flex items-center pt-24 bg-[#4A4238] overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -271,7 +285,7 @@ const App = () => {
         </div>
         <div className="relative w-full px-8 md:px-16 lg:px-24 z-10 text-center lg:text-left">
           <div className="max-w-5xl space-y-8 mx-auto lg:mx-0">
-            <span className="inline-block text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase px-4 py-2 border border-[#D4C4A8]/30 rounded-full mb-4">Our Vision</span>
+            <span className="inline-block text-center text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase px-4 py-2 border border-[#D4C4A8]/30 rounded-full mb-4">Our vision</span>
             <h1 className="text-5xl md:text-7xl lg:text-9xl font-black text-white leading-none tracking-tighter">
               Connecting <br />
               <span className="text-[#D4C4A8]">Global Lives</span>
@@ -289,7 +303,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* 2. Philosophy & Values Section */}
+      {/* 2. Core Values Section */}
       <section className="bg-white min-h-screen flex items-center py-24 border-b border-[#F0EFEA]">
         <div className="w-full px-8 md:px-16 lg:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
@@ -310,7 +324,7 @@ const App = () => {
                 { title: "네트워크", sub: "Network", desc: "일본 전역의 폭넓은 파트너십을 통해 차별화된 매물 접근성을 보장합니다.", icon: Globe },
                 { title: "고객 중심", sub: "Customized", desc: "개별 고객의 상황과 목적에 맞춘 1:1 맞춤형 컨설팅을 지향합니다.", icon: Users }
               ].map((value, i) => (
-                <div key={i} className="p-8 bg-[#FAF9F6] rounded-[2.5rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 shadow-lg">
+                <div key={i} className="p-8 bg-[#FAF9F6] rounded-[2.5rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 shadow-lg text-left">
                   <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#D4C4A8] transition-all shadow-sm">
                     <value.icon size={24} className="text-[#4A4238] group-hover:text-white" />
                   </div>
@@ -324,7 +338,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* [수정 및 강조] 3. Shinjuku Miraina Tower Office Section - 가로형 강조 레이아웃 */}
+      {/* 3. Shinjuku Miraina Tower Office Section - 가로형 강조 레이아웃 */}
       <section className="bg-white min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
         <div className="w-full px-8 md:px-16 lg:px-24 mb-16">
           <div className="max-w-4xl space-y-4">
@@ -335,7 +349,6 @@ const App = () => {
         </div>
 
         <div className="w-full px-8 md:px-16 lg:px-24 grid grid-cols-1 gap-12">
-          {/* 가로로 길게 강조된 이미지 영역 */}
           <div className="relative group">
             <div className="bg-[#FAF9F6] p-4 rounded-[4rem] shadow-2xl overflow-hidden">
               <div className="relative aspect-[21/9] md:aspect-[2.4/1] w-full rounded-[3rem] overflow-hidden">
@@ -344,7 +357,6 @@ const App = () => {
                   alt="신주쿠 미라이나 타워 전경" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]"
                 />
-                {/* 이미지 위 오버레이 정보 */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-12">
                    <p className="text-white text-xl md:text-3xl font-black tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                      A New Hub for Global Success in Shinjuku
@@ -352,27 +364,25 @@ const App = () => {
                 </div>
               </div>
             </div>
-            {/* 데코레이션 요소 */}
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#D4C4A8]/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
           </div>
 
-          {/* 이미지 하단 정보 카드 */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mt-8">
             <div className="lg:col-span-2 space-y-6">
-              <p className="text-2xl md:text-3xl font-black text-[#4A4238] leading-tight">
+              <p className="text-2xl md:text-3xl font-black text-[#4A4238] leading-tight text-center lg:text-left">
                 신주쿠의 새로운 중심, 미라이나 타워에서<br />글로벌 하우징의 미래를 만듭니다.
               </p>
-              <p className="text-lg text-gray-500 font-bold leading-relaxed max-w-3xl">
+              <p className="text-lg text-gray-500 font-bold leading-relaxed max-w-3xl text-center lg:text-left">
                 신주쿠역 미라이나 개찰구와 직접 연결된 '신주쿠 미라이나 타워'는 도쿄의 역동성을 상징하는 랜드마크입니다. 
                 글로벌 하우징은 이곳에서 최첨단 비즈니스 환경과 압도적인 접근성을 바탕으로, 고객 한 분 한 분께 최상의 주거 경험을 선사하기 위해 노력하고 있습니다.
               </p>
             </div>
-            <div className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] space-y-8 shadow-sm">
+            <div className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] space-y-8 shadow-sm text-left">
               <div className="flex gap-5 items-center">
                 <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0">
                   <MapPin size={24} />
                 </div>
-                <p className="font-black text-[#4A4238] uppercase tracking-widest text-sm text-center">Office Info</p>
+                <p className="font-black text-[#4A4238] uppercase tracking-widest text-sm">Office Info</p>
               </div>
               <div className="space-y-2">
                 <p className="text-gray-400 text-xs font-black uppercase tracking-widest">Address</p>
@@ -420,29 +430,29 @@ const App = () => {
       </section>
     </div>
   );
-  
+
   // --- Contact Page Component ---
   const ContactPage = () => (
     <section id="contact" className="bg-[#FAF9F6] min-h-screen flex items-center py-20 pt-32 text-center lg:text-left">
       <div className="w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
         <div className="space-y-10">
-          <div className="space-y-6">
+          <div className="space-y-6 text-center lg:text-left">
             <h2 className="text-5xl md:text-6xl font-black text-[#4A4238] uppercase tracking-widest leading-none">Contact Us</h2>
             <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto lg:mx-0"></div>
             <p className="text-2xl text-gray-500 font-medium">상담 신청 후 24시간 이내에 답변 드립니다.</p>
           </div>
           <div className="space-y-12">
-            <div className="flex gap-8 items-start group justify-center lg:justify-start">
+            <div className="flex gap-8 items-start group justify-center lg:justify-start text-left">
               <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-md shrink-0 text-center"><MapPin size={32} /></div>
-              <div className="pt-2 text-left">
+              <div className="pt-2">
                 <p className="font-bold text-[#4A4238] uppercase text-sm mb-1 tracking-widest opacity-40">Office</p>
                 <p className="text-gray-600 text-xl font-medium">4 Chome-1-6 Shinjuku, Tokyo</p>
                 <p className="text-gray-400 text-sm font-bold uppercase">Shinjuku Miraina Tower</p>
               </div>
             </div>
-            <div className="flex gap-8 items-center group justify-center lg:justify-start">
+            <div className="flex gap-8 items-center group justify-center lg:justify-start text-left">
               <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-md shrink-0 text-center"><Mail size={32} /></div>
-              <div className="pt-1 text-left">
+              <div className="pt-1">
                 <p className="font-bold text-[#4A4238] uppercase text-sm mb-1 tracking-widest opacity-40">Email</p>
                 <p className="text-gray-600 text-xl font-medium">info@globalhousing.jp</p>
               </div>
@@ -486,9 +496,9 @@ const App = () => {
             <button onClick={() => navigate('contact')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">문의하기</button>
           </div>
           <div className="flex gap-10 mx-auto lg:mx-0">
-            {[Facebook, Instagram, Twitter].map((Icon, idx) => (
-              <Icon key={idx} className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={32} />
-            ))}
+            <Instagram className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={32} />
+            <NaverIcon size={32} className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" />
+            <Youtube className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={32} />
           </div>
         </div>
         <div className="pt-16 border-t border-[#F0EFEA] text-center text-gray-300 text-xs font-bold uppercase tracking-[0.6em]">
@@ -500,15 +510,21 @@ const App = () => {
 
   return (
     <div className="w-full min-h-screen selection:bg-[#4A4238] selection:text-white bg-white antialiased">
+      {/* 폰트 적용 스타일 태그 */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        body, #root {
+          font-family: 'Noto Sans KR', 'Noto Sans JP', sans-serif !important;
+        }
+      `}</style>
+      
       <Navbar />
       <main className="w-full">
         {currentPage === 'landing' ? <LandingPage /> : 
          currentPage === 'about' ? <AboutPage /> :
          currentPage === 'contact' ? <ContactPage /> : (
-          <div className="pt-48 pb-32 w-full px-8 md:px-16 min-h-[90vh] bg-[#FAF9F6] text-center flex flex-col items-center justify-center text-center">
-            <h2 className="text-6xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest mb-10 leading-none text-[#4A4238]">
-              {currentPage === 'partners' ? '협력사' : '페이지'}
-            </h2>
+          <div className="pt-48 pb-32 w-full px-8 md:px-16 min-h-[90vh] bg-[#FAF9F6] text-center flex flex-col items-center justify-center text-center text-[#4A4238]">
+            <h2 className="text-6xl md:text-7xl font-black uppercase tracking-widest mb-10 leading-none">{currentPage === 'partners' ? '협력사' : '페이지'}</h2>
             <div className="w-48 h-2 bg-[#D4C4A8] rounded-full mb-16 mx-auto"></div>
             <p className="text-gray-400 text-3xl font-bold tracking-[0.2em]">이 페이지는 현재 준비 중입니다.</p>
           </div>
