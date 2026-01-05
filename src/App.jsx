@@ -14,7 +14,7 @@ import {
   Plus,
   Minus,
   CheckCircle2,
-  FileText,
+  FileText, 
   UserCheck,
   Building,
   HeartHandshake,
@@ -24,14 +24,18 @@ import {
   ShieldCheck,
   MessageCircle,
   ExternalLink,
-  Smartphone
+  Smartphone,
+  GraduationCap,
+  Truck,
+  FileSearch,
+  BookOpen
 } from 'lucide-react';
 
 /**
  * [1. SHARED COMPONENTS & ASSETS]
  */
 
-// 네이버 블로그 커스텀 아이콘 (꽉 찬 정자체 B 형상)
+// 네이버 블로그 커스텀 아이콘 (잘림 방지 및 꽉 찬 정자체 B 형상 수정)
 const NaverIcon = ({ size = 24, className = "" }) => (
   <svg 
     width={size} 
@@ -42,7 +46,7 @@ const NaverIcon = ({ size = 24, className = "" }) => (
     className={className}
   >
     <path 
-      d="M6 2h8c3.866 0 7 2.686 7 6 0 1.933-1.067 3.633-2.652 4.5 1.585 0.867 2.652 2.567 2.652 4.5 0 3.314-3.134 6-7 6H6V2zm3 3v6h5c1.657 0 3-1.343 3-3s-1.343-3-3-3H9zm0 9v7h6c1.657 0 3-1.343 3-3s-1.343-4-3-4H9z" 
+      d="M6 2h8c3.314 0 6 2.686 6 6 0 2.21-1.2 4.1-3 5.1 1.8 1 3 2.89 3 5.1 0 3.314-2.686 6-6 6H6V2zm3 3v6h5c1.105 0 2-.895 2-2s-.895-2-2-2H9zm0 9v6h5.5c1.105 0 2-.895 2-2s-.895-2-2-2H9z" 
       fill="currentColor"
     />
   </svg>
@@ -107,7 +111,7 @@ const Navbar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
  */
 
 const LandingPage = ({ navigate, scrollToSection }) => (
-  <div className="w-full">
+  <div className="w-full animate-in fade-in duration-500">
     {/* Hero Section */}
     <section className="relative min-h-screen flex items-center pt-24 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522444195799-478538b28823?auto=format&fit=crop&q=80&w=2000')", backgroundAttachment: 'fixed' }}>
       <div className="absolute inset-0 bg-white/50"></div>
@@ -115,7 +119,9 @@ const LandingPage = ({ navigate, scrollToSection }) => (
         <div className="space-y-10 max-w-4xl text-center lg:text-left">
           <div className="space-y-4">
             <h1 className="text-3xl md:text-6xl lg:text-7xl font-black text-[#4A4238] leading-tight md:leading-[1.2]">
-              일본 집 구하기는?<br />글로벌 하우징
+              일본 집 구하기는?<br />
+              {/* 색상을 빼달라는 요청에 따라 강조 색상을 제거하고 기본 텍스트 색상 적용 */}
+              글로벌 하우징
             </h1>
             <p className="text-2xl md:text-3xl font-bold text-gray-500 mt-8 leading-relaxed">
               왜 모두 글로벌 하우징을 선택할까요?
@@ -200,7 +206,7 @@ const LandingPage = ({ navigate, scrollToSection }) => (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
             {[{ title: "전문가 컨설팅", desc: "15년 경력 투자 매니저 배정", icon: UserCheck }, { title: "사후 관리 서비스", desc: "임대 관리 및 세무 업무 지원", icon: HeartHandshake }].map((box, i) => (
               <div key={i} className="p-10 bg-[#FAF9F6] rounded-[2.5rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 shadow-lg hover:shadow-2xl text-center lg:text-left">
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#D4C4A8] transition-all mx-auto lg:mx-0"><box.icon size={28} className="text-[#4A4238] group-hover:text-white" /></div>
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#D4C4A8] transition-all mx-auto lg:mx-0 text-center lg:text-left"><box.icon size={28} className="text-[#4A4238] group-hover:text-white" /></div>
                 <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2 leading-none text-center lg:text-left">{box.title}</h4>
                 <p className="text-gray-500 group-hover:text-white/70 text-base font-bold text-center lg:text-left">{box.desc}</p>
               </div>
@@ -230,16 +236,17 @@ const LandingPage = ({ navigate, scrollToSection }) => (
  */
 
 const AboutPage = ({ navigate }) => (
-  <div className="w-full text-left">
-    <section className="relative min-h-screen flex items-center pt-24 pb-32 bg-[#4A4238] overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
+  <div className="w-full text-left animate-in fade-in duration-500">
+    {/* Vision Section - 글자 크기를 요청에 따라 전체적으로 축소 조정 */}
+    <section className="relative min-h-screen flex items-center pt-24 pb-32 bg-[#4A4238] overflow-hidden text-left">
+      <div className="absolute inset-0 opacity-20 text-left">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1449156001437-3a1661acda2e?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center"></div>
       </div>
-      <div className="relative w-full px-8 md:px-16 lg:px-24 z-10 text-center lg:text-left">
-        <div className="max-w-5xl space-y-8 mx-auto lg:mx-0">
-          <span className="inline-block text-center text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase px-4 py-2 border border-[#D4C4A8]/30 rounded-full mb-4">Our vision</span>
-          <h1 className="text-5xl md:text-7xl lg:text-9xl font-black text-white leading-none tracking-tighter">Connecting <br /><span className="text-[#D4C4A8]">Global Lives</span></h1>
-          <p className="text-xl md:text-3xl font-bold text-gray-300 max-w-3xl leading-relaxed mx-auto lg:mx-0">글로벌 하우징은 국경을 넘어 모든 고객이 일본에서 새로운 삶의 시작을 안심하고 설계할 수 있도록 돕는 신뢰의 가교입니다.</p>
+      <div className="relative w-full px-8 md:px-16 lg:px-24 z-10 text-center lg:text-left text-left">
+        <div className="max-w-5xl space-y-8 mx-auto lg:mx-0 text-left">
+          <span className="inline-block text-center text-[#D4C4A8] font-black tracking-[0.5em] text-xs uppercase px-4 py-2 border border-[#D4C4A8]/30 rounded-full mb-4">Our vision</span>
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-white leading-none tracking-tighter text-left">Connecting <br /><span className="text-[#D4C4A8]">Global Lives</span></h1>
+          <p className="text-lg md:text-2xl font-bold text-gray-300 max-w-3xl leading-relaxed mx-auto lg:mx-0 text-left">글로벌 하우징은 국경을 넘어 모든 고객이 일본에서 새로운 삶의 시작을 안심하고 설계할 수 있도록 돕는 신뢰의 가교입니다.</p>
         </div>
       </div>
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block text-[#D4C4A8] z-20">
@@ -291,23 +298,23 @@ const AboutPage = ({ navigate }) => (
       <div className="w-full px-8 md:px-16 lg:px-24 grid grid-cols-1 gap-12 text-center lg:text-left">
         <div className="relative group isolate translate-z-0">
           <div className="bg-[#FAF9F6] p-4 rounded-[4rem] shadow-2xl overflow-hidden">
-            <div className="relative aspect-[21/9] md:aspect-[2.4/1] w-full rounded-[3rem] overflow-hidden text-center lg:text-left mx-auto lg:mx-0">
+            <div className="relative aspect-[21/9] md:aspect-[2.4/1] w-full rounded-[3rem] overflow-hidden text-center lg:text-left mx-auto lg:mx-0 text-left">
               <img src="/src/assets/office.jpg" alt="신주쿠 미라이나 타워 전경" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-12">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-12 text-left">
                  <p className="text-white text-xl md:text-3xl font-black tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-700">A New Hub for Global Success in Shinjuku</p>
               </div>
             </div>
           </div>
           <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#D4C4A8]/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mt-8">
-          <div className="lg:col-span-2 space-y-6 text-center lg:text-left">
-            <p className="text-2xl md:text-3xl font-black text-[#4A4238] leading-tight">신주쿠의 새로운 중심, 미라이나 타워에서<br />글로벌 하우징의 미래를 만듭니다.</p>
-            <p className="text-lg text-gray-500 font-bold leading-relaxed max-w-3xl mx-auto lg:mx-0 text-center lg:text-left text-center lg:text-left">신주쿠역 미라이나 개찰구와 직접 연결된 '신주쿠 미라이나 타워'는 도쿄의 역동성을 상징하는 랜드마크입니다. 글로벌 하우징은 이곳에서 최첨단 비즈니스 환경과 압도적인 접근성을 바탕으로 고객을 맞이합니다.</p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mt-8 text-left">
+          <div className="lg:col-span-2 space-y-6 text-center lg:text-left text-left">
+            <p className="text-2xl md:text-3xl font-black text-[#4A4238] leading-tight text-left">신주쿠의 새로운 중심, 미라이나 타워에서<br />글로벌 하우징의 미래를 만듭니다.</p>
+            <p className="text-lg text-gray-500 font-bold leading-relaxed max-w-3xl mx-auto lg:mx-0 text-center lg:text-left text-center lg:text-left text-left">신주쿠역 미라이나 개찰구와 직접 연결된 '신주쿠 미라이나 타워'는 도쿄의 역동성을 상징하는 랜드마크입니다. 글로벌 하우징은 이곳에서 최첨단 비즈니스 환경과 압도적인 접근성을 바탕으로 고객을 맞이합니다.</p>
           </div>
           <div className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] space-y-8 shadow-sm text-left">
-            <div className="flex gap-5 items-center text-left"><div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0"><MapPin size={24} /></div><p className="font-black text-[#4A4238] uppercase tracking-widest text-sm">Office Info</p></div>
-            <div className="space-y-2"><p className="text-gray-400 text-xs font-black uppercase tracking-widest">Address</p><p className="text-gray-600 font-bold leading-relaxed">4 Chome-1-6 Shinjuku, Shinjuku City, Tokyo 160-0022<br />Shinjuku Miraina Tower</p></div>
+            <div className="flex gap-5 items-center text-left text-left"><div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0"><MapPin size={24} /></div><p className="font-black text-[#4A4238] uppercase tracking-widest text-sm">Office Info</p></div>
+            <div className="space-y-2 text-left"><p className="text-gray-400 text-xs font-black uppercase tracking-widest text-left">Address</p><p className="text-gray-600 font-bold leading-relaxed text-left">4 Chome-1-6 Shinjuku, Shinjuku City, Tokyo 160-0022<br />Shinjuku Miraina Tower</p></div>
             <button onClick={() => navigate('contact')} className="w-full bg-[#4A4238] text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#3d362d] transition-all">상담 방문 예약하기</button>
           </div>
         </div>
@@ -326,12 +333,12 @@ const AboutPage = ({ navigate }) => (
             </div>
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#D4C4A8]/10 rounded-full -z-0 blur-3xl text-center lg:text-left text-center lg:text-left"></div>
           </div>
-          <div className="w-full lg:w-1/2 space-y-10 text-center lg:text-left">
-            <div className="space-y-6 text-center lg:text-left">
-              <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block">Ceo Message</span>
-              <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] leading-tight">당신의 새로운 시작,<br />글로벌 하우징이 함께합니다.</h2>
+          <div className="w-full lg:w-1/2 space-y-10 text-center lg:text-left text-left">
+            <div className="space-y-6 text-center lg:text-left text-left">
+              <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block text-left">Ceo Message</span>
+              <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] leading-tight text-left">당신의 새로운 시작,<br />글로벌 하우징이 함께합니다.</h2>
             </div>
-            <div className="space-y-8 text-lg text-gray-600 font-bold leading-relaxed italic text-center lg:text-left">
+            <div className="space-y-8 text-lg text-gray-600 font-bold leading-relaxed italic text-center lg:text-left text-left">
               <p>"일본에서의 첫 시작은 설렘만큼이나 두려움도 크다는 것을 잘 알고 있습니다. 언어와 문화의 장벽 앞에서 누구보다 진심으로 임하겠습니다."</p>
               <p>"우리는 고객이 일본 사회에 안정적으로 정착하고 더 큰 미래를 꿈꿀 수 있는 주거 기반을 제공하는 것에 자부심을 느낍니다."</p>
             </div>
@@ -347,24 +354,76 @@ const AboutPage = ({ navigate }) => (
 );
 
 /**
- * [5. RECONSTRUCTED CONTACT PAGE COMPONENT]
+ * [5. PARTNERS PAGE COMPONENT]
+ */
+
+const PartnersPage = () => {
+  const partnerList = [
+    { id: 1, name: "메이지 한국인 유학생회", category: "Student Community", desc: "메이지 대학교 한국인 유학생들의 권익 증진과 정보 교류를 돕는 공식 커뮤니티입니다.", icon: GraduationCap },
+    { id: 2, name: "와세다 한국인 유학생회", category: "Student Community", desc: "와세다 대학교 한국 유학생들의 안정적인 일본 정착과 네트워크를 지원합니다.", icon: GraduationCap },
+    { id: 3, name: "XX 일본어학원", category: "Education", desc: "도쿄 중심부에 위치한 명문 어학원으로, 학생들의 일본어 능력 향상과 진학을 책임집니다.", icon: BookOpen },
+    { id: 4, name: "YY 이사 서비스", category: "Settlement", desc: "한국어 지원이 가능한 프리미엄 이사 서비스로, 안심하고 이삿짐을 맡기실 수 있습니다.", icon: Truck },
+    { id: 5, name: "ZZ 행정서사 사무소", category: "Legal & Visa", desc: "복잡한 비자 문제와 법률 자문을 전문적으로 제공하는 글로벌 하우징의 법률 파트너입니다.", icon: FileSearch },
+    { id: 6, name: "Global Living Insurance", category: "Insurance", desc: "외국인 거주자를 위한 최적의 화재 보험 및 생활 보험 상품을 제안합니다.", icon: ShieldCheck }
+  ];
+
+  return (
+    <div className="w-full animate-in fade-in duration-500">
+      <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA]">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
+          <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4">Our Network</span>
+          <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center">Official Partners</h2>
+          <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full text-center"></div>
+          <p className="mt-8 text-xl text-gray-500 font-bold max-w-2xl mx-auto">글로벌 하우징과 함께 더 높은 가치를 만들어가는 검증된 파트너사들을 소개합니다.</p>
+        </div>
+      </section>
+
+      <section className="bg-[#FAF9F6] py-24 min-h-screen">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {partnerList.map((partner) => (
+              <div 
+                key={partner.id} 
+                className="bg-white p-10 rounded-[3rem] shadow-sm border border-[#F0EFEA] hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group flex flex-col items-center text-center isolate translate-z-0"
+              >
+                <div className="w-20 h-20 bg-[#FAF9F6] rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:bg-[#4A4238] transition-colors duration-500">
+                  <partner.icon size={40} className="text-[#4A4238] group-hover:text-[#D4C4A8] transition-colors" />
+                </div>
+                <div className="space-y-4 flex-grow">
+                  <span className="text-[#D4C4A8] font-black text-[10px] uppercase tracking-[0.3em] block">{partner.category}</span>
+                  <h4 className="text-2xl font-black text-[#4A4238]">{partner.name}</h4>
+                  <div className="w-10 h-1 bg-[#F0EFEA] mx-auto"></div>
+                  <p className="text-gray-500 font-bold leading-relaxed text-sm">{partner.desc}</p>
+                </div>
+                <button className="mt-10 px-8 py-3 bg-[#FAF9F6] text-[#4A4238] rounded-full font-black text-xs uppercase tracking-widest border border-[#F0EFEA] group-hover:bg-[#4A4238] group-hover:text-white group-hover:border-[#4A4238] transition-all">
+                  Learn More
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+/**
+ * [6. CONTACT PAGE COMPONENT]
  */
 
 const ContactPage = () => (
-  <div className="w-full">
-    {/* Page Header */}
-    <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA]">
+  <div className="w-full animate-in fade-in duration-500 text-center">
+    <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA] text-center">
       <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
-        <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4">Connect with us</span>
-        <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none">Contact Us</h2>
-        <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full"></div>
+        <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4 text-center">Connect with us</span>
+        <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center">Contact Us</h2>
+        <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full text-center"></div>
         <p className="mt-8 text-xl text-gray-500 font-bold">성공적인 일본 정착을 위한 첫걸음, 글로벌 하우징이 함께합니다.</p>
       </div>
     </section>
 
-    {/* Primary Contact Channels */}
     <section className="bg-[#FAF9F6] py-24">
-      <div className="max-w-7xl mx-auto px-8 md:px-16">
+      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { label: 'E-mail', value: 'info@globalhousing.jp', icon: Mail, color: 'bg-blue-50 text-blue-600', link: 'mailto:info@globalhousing.jp' },
@@ -388,9 +447,8 @@ const ContactPage = () => (
       </div>
     </section>
 
-    {/* Media Channels */}
     <section className="bg-white py-24">
-      <div className="max-w-7xl mx-auto px-8 md:px-16">
+      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 text-center md:text-left">
           <h3 className="text-3xl font-black text-[#4A4238] uppercase tracking-tighter">Official Media</h3>
           <p className="text-gray-500 font-bold">다양한 채널을 통해 일본 부동산 정보를 확인하세요.</p>
@@ -401,10 +459,10 @@ const ContactPage = () => (
             { name: 'Naver Blog', desc: '전문적인 일본 부동산 시장 분석 및 가이드', icon: NaverIcon, color: 'text-green-600' },
             { name: 'YouTube', desc: '생생한 매물 투어 및 현지 생활 브이로그', icon: Youtube, color: 'text-red-600' }
           ].map((media, i) => (
-            <div key={i} className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500">
-              <media.icon size={48} className={`${media.color} group-hover:text-white transition-colors mb-6`} />
+            <div key={i} className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 text-center">
+              <media.icon size={48} className={`${media.color} group-hover:text-white transition-colors mb-6 text-center mx-auto`} />
               <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2">{media.name}</h4>
-              <p className="text-gray-500 group-hover:text-white/70 font-bold mb-6">{media.desc}</p>
+              <p className="text-gray-500 group-hover:text-white/70 font-bold mb-6 text-center">{media.desc}</p>
               <div className="inline-flex items-center gap-2 text-[#D4C4A8] font-black text-sm uppercase tracking-widest">
                 Visit Channel <ExternalLink size={16} />
               </div>
@@ -414,7 +472,6 @@ const ContactPage = () => (
       </div>
     </section>
 
-    {/* Office Location */}
     <section className="bg-[#FAF9F6] py-24">
       <div className="max-w-7xl mx-auto px-8 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -432,16 +489,7 @@ const ContactPage = () => (
                   <p className="text-gray-600 font-bold text-lg leading-relaxed">4 Chome-1-6 Shinjuku, Shinjuku City,<br />Tokyo 160-0022</p>
                 </div>
               </div>
-              <div className="flex gap-6 items-start justify-center lg:justify-start">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0"><Smartphone size={24} /></div>
-                <div className="text-left">
-                  <p className="font-black text-[#4A4238] text-sm uppercase tracking-widest mb-1 opacity-40">Contact Information</p>
-                  <p className="text-gray-600 font-bold text-lg">Tel: +81 03-XXXX-XXXX</p>
-                  <p className="text-gray-600 font-bold text-lg">E-mail: info@globalhousing.jp</p>
-                </div>
-              </div>
             </div>
-            <p className="text-gray-400 font-bold leading-relaxed text-sm">신주쿠역 미라이나 개찰구와 직접 연결되어 있어 방문이 매우 편리합니다. 원활한 상담을 위해 사전 예약을 부탁드립니다.</p>
           </div>
           <div className="bg-white p-4 rounded-[4rem] shadow-xl">
             <div className="aspect-video bg-gray-100 rounded-[3rem] flex items-center justify-center overflow-hidden">
@@ -455,22 +503,22 @@ const ContactPage = () => (
 );
 
 /**
- * [6. FOOTER COMPONENT]
+ * [7. FOOTER COMPONENT]
  */
 
 const Footer = ({ navigate }) => (
   <footer className="bg-white py-24 border-t border-[#F0EFEA]">
-    <div className="w-full px-8 md:px-16 text-center lg:text-left">
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-16 mb-16">
-        <div className="flex items-center gap-8 cursor-pointer mx-auto lg:mx-0" onClick={() => navigate('landing')}>
-          <img src="/src/assets/long_globalhousing.png" alt="Global Housing Logo" className="h-8 md:h-10 w-auto object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+    <div className="w-full px-8 md:px-16 text-center lg:text-left text-center">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-16 mb-16 text-center lg:text-left">
+        <div className="flex items-center gap-8 cursor-pointer mx-auto lg:mx-0 text-center lg:text-left" onClick={() => navigate('landing')}>
+          <img src="/src/assets/long_globalhousing.png" alt="Global Housing Logo" className="h-8 md:h-10 w-auto object-contain text-center" onError={(e) => { e.target.style.display = 'none'; }} />
         </div>
-        <div className="flex flex-wrap justify-center gap-12 text-lg font-black uppercase tracking-widest text-gray-400 mx-auto lg:mx-0">
+        <div className="flex flex-wrap justify-center gap-12 text-lg font-black uppercase tracking-widest text-gray-400 mx-auto lg:mx-0 text-center lg:text-left">
           <button onClick={() => navigate('about')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">회사 소개</button>
           <button onClick={() => navigate('partners')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">협력사</button>
           <button onClick={() => navigate('contact')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">문의하기</button>
         </div>
-        <div className="flex gap-10 mx-auto lg:mx-0">
+        <div className="flex gap-10 mx-auto lg:mx-0 text-center">
           <Instagram className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={32} />
           <NaverIcon size={32} className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" />
           <Youtube className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={32} />
@@ -524,14 +572,8 @@ const App = () => {
       <main className="w-full">
         {currentPage === 'landing' && <LandingPage navigate={navigate} scrollToSection={scrollToSection} />}
         {currentPage === 'about' && <AboutPage navigate={navigate} />}
-        {currentPage === 'contact' && <ContactPage navigate={navigate} />}
-        {currentPage === 'partners' && (
-          <div className="pt-48 pb-32 w-full px-8 md:px-16 min-h-[90vh] bg-[#FAF9F6] text-center flex flex-col items-center justify-center text-center text-[#4A4238]">
-            <h2 className="text-6xl md:text-7xl font-black uppercase tracking-widest mb-10 leading-none">협력사</h2>
-            <div className="w-48 h-2 bg-[#D4C4A8] rounded-full mb-16 mx-auto"></div>
-            <p className="text-gray-400 text-3xl font-bold tracking-[0.2em]">이 페이지는 현재 준비 중입니다.</p>
-          </div>
-        )}
+        {currentPage === 'contact' && <ContactPage />}
+        {currentPage === 'partners' && <PartnersPage />}
       </main>
       
       <Footer navigate={navigate} />
