@@ -11,60 +11,87 @@ import {
   Twitter, 
   Menu, 
   X, 
-  ArrowRight 
+  ArrowRight,
+  Search,
+  ClipboardCheck,
+  Key,
+  HelpCircle,
+  Plus,
+  Minus,
+  CheckCircle2,
+  FileText,
+  UserCheck,
+  CreditCard,
+  Building,
+  HeartHandshake,
+  ChevronRight
 } from 'lucide-react';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('landing');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
 
-  // 페이지 이동 함수
   const navigate = (page) => {
     setCurrentPage(page);
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // --- Header: 와이어프레임 좌측 로고 / 우측 메뉴 구성 ---
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const Navbar = () => (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-[#F0EFEA]">
-      <div className="w-full px-8 md:px-16 h-24 flex justify-between items-center">
-        {/* Logo (와이어프레임 좌측 상단) */}
+      <div className="w-full px-8 md:px-16 h-20 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer shrink-0" onClick={() => navigate('landing')}>
-          <div className="w-12 h-12 bg-[#4A4238] rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-xl">GH</span>
+          <div className="w-10 h-10 bg-[#4A4238] rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-lg text-center leading-none">GH</span>
           </div>
-          <span className="text-2xl font-extrabold text-[#4A4238] tracking-tight">GLOBAL HOUSING</span>
+          <span className="text-xl font-extrabold text-[#4A4238] tracking-tight uppercase">Global Housing</span>
         </div>
 
-        {/* Desktop Menu (와이어프레임 우측 상단) */}
-        <div className="hidden md:flex items-center gap-12">
-          <button onClick={() => navigate('about')} className={`text-lg font-semibold transition-colors ${currentPage === 'about' ? 'text-[#D4C4A8]' : 'text-[#4A4238] hover:text-[#D4C4A8]'}`}>About Us</button>
-          <button onClick={() => navigate('partners')} className={`text-lg font-semibold transition-colors ${currentPage === 'partners' ? 'text-[#D4C4A8]' : 'text-[#4A4238] hover:text-[#D4C4A8]'}`}>Partner</button>
-          <button onClick={() => navigate('contact')} className={`text-lg font-semibold transition-colors ${currentPage === 'contact' ? 'text-[#D4C4A8]' : 'text-[#4A4238] hover:text-[#D4C4A8]'}`}>Contact Us</button>
+        <div className="hidden md:flex items-center gap-10">
+          <button onClick={() => navigate('about')} className={`text-base font-bold transition-colors text-[#4A4238] hover:text-[#D4C4A8]`}>회사 소개</button>
+          <button onClick={() => navigate('partners')} className={`text-base font-bold transition-colors text-[#4A4238] hover:text-[#D4C4A8]`}>협력사</button>
+          <button onClick={() => navigate('contact')} className={`text-base font-bold transition-colors text-[#4A4238] hover:text-[#D4C4A8]`}>문의하기</button>
         </div>
 
-        {/* 모바일 토글 */}
         <button className="md:hidden text-[#4A4238]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* 모바일 드롭다운 */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-[#F0EFEA] py-8 px-8 flex flex-col gap-6 shadow-xl">
-          <button onClick={() => navigate('about')} className="text-left text-xl font-bold text-[#4A4238] py-2">About Us</button>
-          <button onClick={() => navigate('partners')} className="text-left text-xl font-bold text-[#4A4238] py-2">Partner</button>
-          <button onClick={() => navigate('contact')} className="text-left text-xl font-bold text-[#4A4238] py-2">Contact Us</button>
+          <button onClick={() => navigate('about')} className="text-left text-lg font-bold text-[#4A4238] py-2">회사 소개</button>
+          <button onClick={() => navigate('partners')} className="text-left text-lg font-bold text-[#4A4238] py-2">협력사</button>
+          <button onClick={() => navigate('contact')} className="text-left text-lg font-bold text-[#4A4238] py-2">문의하기</button>
         </div>
       )}
     </nav>
   );
 
-  // --- Landing Page Content ---
   const LandingPage = () => (
     <div className="w-full">
-      {/* 1. Hero Section - 배경 이미지 적용 및 줄 간격 수정 */}
+      {/* 1. Hero Section - 원본 코드 유지 */}
       <section 
         className="relative min-h-screen flex items-center pt-24 bg-cover bg-center"
         style={{ 
@@ -72,14 +99,11 @@ const App = () => {
           backgroundAttachment: 'fixed'
         }}
       >
-        {/* 가독성을 위한 오버레이 */}
         <div className="absolute inset-0 bg-white/50"></div>
-
         <div className="relative w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
           <div className="space-y-10 max-w-4xl">
             <div className="space-y-4">
-              {/* 줄 간격을 leading-tight 또는 arbitrary value [1.2] 등으로 조정했습니다. */}
-              <h1 className="text-5xl md:text-5xl lg:text-6xl font-black text-[#4A4238] leading-normal md:leading-normal">
+              <h1 className="text-3xl md:text-6xl lg:text-7xl font-black text-[#4A4238] leading-tight md:leading-[1.2]">
                 일본 집 구하기는?<br />
                 <span className="text-[#D4C4A8]">글로벌 하우징</span>
               </h1>
@@ -87,8 +111,6 @@ const App = () => {
                 왜 모두 글로벌 하우징을 선택할까요?
               </p>
             </div>
-            
-            {/* 버튼 영역: 와이어프레임 하단 배치 */}
             <div className="flex flex-wrap gap-6 pt-4">
               <button 
                 onClick={() => navigate('about')}
@@ -104,166 +126,202 @@ const App = () => {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 2. Rent/Sale Selection Section */}
+      <section className="bg-white py-24 border-b border-[#F0EFEA]">
+        <div className="w-full px-8 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div 
+            className="relative h-[550px] group overflow-hidden rounded-[4rem] cursor-pointer shadow-xl" 
+            onClick={() => scrollToSection('rental-process')}
+          >
+            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&q=80&w=1000')" }}></div>
+            <div className="absolute inset-0 bg-[#4A4238]/40 group-hover:bg-[#4A4238]/20 transition-colors duration-500"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-6 text-center px-10">
+              <div className="p-6 bg-white/20 backdrop-blur-md rounded-3xl mb-4 border border-white/30">
+                <Building2 size={70} strokeWidth={1} />
+              </div>
+              <h3 className="text-5xl font-black uppercase tracking-tighter leading-none text-white">Rent</h3>
+              <p className="text-2xl font-bold opacity-80 leading-relaxed text-white">일본 생활의 시작, 체계적인 임대 프로세스</p>
+              <div className="pt-6 flex items-center gap-4 text-xl font-black group-hover:gap-8 transition-all duration-500 text-white">
+                <span>PROCESS VIEW</span> <ArrowRight size={24} />
+              </div>
+            </div>
+          </div>
+
+          <div 
+            className="relative h-[550px] group overflow-hidden rounded-[5rem] cursor-pointer shadow-xl" 
+            onClick={() => scrollToSection('sale-section')}
+          >
+            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000')" }}></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#D4C4A8] via-[#D4C4A8]/40 to-transparent group-hover:from-[#D4C4A8]/90 transition-all duration-500"></div>
+            <div className="absolute bottom-20 left-16 right-16 text-white space-y-6">
+              <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-[2.5rem] flex items-center justify-center mb-4 border border-white/30 text-white">
+                <Home size={40} strokeWidth={1} />
+              </div>
+              <h3 className="text-7xl font-black uppercase tracking-tighter leading-none text-white">Sale</h3>
+              <p className="text-2xl font-bold opacity-80 leading-relaxed text-white">수익성 높은 일본 부동산 투자와 매매 서비스</p>
+              <div className="pt-6 flex items-center gap-4 text-xl font-black group-hover:gap-8 transition-all duration-500 text-white">
+                <span>SERVICE VIEW</span> <ArrowRight size={24} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* [수정된 섹션] 3. Rental Process Section - 간격을 최소화하여 이미지 흐름 강화 */}
+      <section id="rental-process" className="bg-[#FAF9F6] py-40 border-b border-[#F0EFEA]">
+        <div className="w-full px-4 md:px-10 lg:px-16">
+          <div className="text-center mb-32">
+            <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-xl uppercase block mb-4">How it works</span>
+            <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center">Rental Process</h2>
+            <div className="w-32 h-2 bg-[#D4C4A8] mx-auto mt-8"></div>
+          </div>
           
-          {/* 와이어프레임 우측: 이미지 박스 영역 */}
-          <div className="relative hidden lg:block">
-            <div className="bg-white/30 backdrop-blur-md rounded-[5rem] aspect-square border border-white/40 shadow-2xl flex flex-col items-center justify-center group overflow-hidden">
-               <Home size={200} strokeWidth={0.5} className="text-[#4A4238]/10 group-hover:scale-110 transition-transform duration-700" />
-               <p className="mt-12 font-black text-4xl tracking-[0.5em] text-[#4A4238]/20 uppercase">Global Housing</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          {/* gap-x-4에서 gap-x-1로 줄여 이미지 사이의 여백을 최소화 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-x-1 gap-y-20 relative">
+            {[
+              { id: 1, title: "상담 및 문의", desc: "라이프스타일 맞춤 상담" },
+              { id: 2, title: "매물 선별 및 방문", desc: "직접/영상 투어 진행" },
+              { id: 3, title: "신청 및 심사", desc: "특화 심사 노하우 지원" },
+              { id: 4, title: "정산", desc: "초기 비용 확인 및 정산" },
+              { id: 5, title: "계약 체결", desc: "안전한 정식 계약 완료" },
+              { id: 6, title: "사후 관리", desc: "정착 및 사후 생활 지원" }
+            ].map((step) => (
+              <div key={step.id} className="flex flex-col items-center group px-1">
+                
+                {/* 이미지 영역: gap-x를 줄이고 둥근 프레임을 최적화 */}
+                <div className="w-full aspect-square flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
+                  <img 
+                    src={`/src/assets/step${step.id}.png`} 
+                    alt={step.title} 
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.src = "https://via.placeholder.com/200?text=Step" + step.id;
+                    }}
+                  />
+                </div>
 
-      {/* 2. Why Choose Us (3-Column Layout) */}
-      <section className="bg-white py-40 border-b border-[#F0EFEA]">
-        <div className="w-full px-8 md:px-16">
-          <h2 className="text-5xl md:text-6xl font-black text-[#4A4238] text-center mb-32 uppercase tracking-widest">Why Choose Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-24 lg:gap-40">
-            <div className="text-center space-y-10 group">
-              <div className="w-32 h-32 bg-[#FAF9F6] rounded-full flex items-center justify-center mx-auto text-[#4A4238] shadow-sm group-hover:bg-[#4A4238] group-hover:text-white transition-all duration-500 transform group-hover:-translate-y-2">
-                <Globe size={56} />
+                {/* 텍스트 가독성 최적화 */}
+                <div className="mt-4 text-center">
+                  <h4 className="text-base lg:text-lg font-black text-[#4A4238] uppercase tracking-tighter leading-tight break-keep">{step.title}</h4>
+                  <p className="hidden md:block text-[10px] lg:text-xs text-gray-400 font-bold mt-1 break-keep leading-relaxed opacity-80">{step.desc}</p>
+                </div>
               </div>
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold uppercase tracking-tight">Japanese Lifestyle</h3>
-                <p className="text-gray-500 text-xl leading-relaxed">일본의 주거 문화와 환경을 심층적으로 분석하여 고객의 삶에 가장 조화로운 공간을 제안합니다.</p>
-              </div>
-            </div>
-            <div className="text-center space-y-10 group">
-              <div className="w-32 h-32 bg-[#FAF9F6] rounded-full flex items-center justify-center mx-auto text-[#4A4238] shadow-sm group-hover:bg-[#4A4238] group-hover:text-white transition-all duration-500 transform group-hover:-translate-y-2">
-                <Target size={56} />
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold uppercase tracking-tight">Customer Focus</h3>
-                <p className="text-gray-500 text-xl leading-relaxed">고객 만족을 최우선으로, 모든 과정에서 투명하고 신속한 소통을 약속합니다.</p>
-              </div>
-            </div>
-            <div className="text-center space-y-10 group">
-              <div className="w-32 h-32 bg-[#FAF9F6] rounded-full flex items-center justify-center mx-auto text-[#4A4238] shadow-sm group-hover:bg-[#4A4238] group-hover:text-white transition-all duration-500 transform group-hover:-translate-y-2">
-                <Building2 size={56} />
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-3xl font-bold uppercase tracking-tight">Global Housing</h3>
-                <p className="text-gray-500 text-xl leading-relaxed">글로벌 네트워크를 기반으로 누구나 안심하고 이용할 수 있는 부동산 서비스를 제공합니다.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. About Intro (Global Housing - 텍스트 좌측, 이미지 우측) */}
-      <section className="bg-[#FAF9F6] py-40">
-        <div className="w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-48 items-center">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-6xl font-black text-[#4A4238] uppercase tracking-widest leading-tight">Global Housing</h2>
-              <div className="w-32 h-2 bg-[#D4C4A8]"></div>
-            </div>
-            <p className="text-gray-600 leading-[2.2] text-2xl font-medium">
-              글로벌 하우징은 풍부한 전문 지식과 실무 노하우를 바탕으로 일본 부동산 시장의 새로운 가치를 창출합니다. 
-              단순한 공간 중개를 넘어, 고객의 새로운 시작과 미래를 함께 설계하는 신뢰의 동반자가 되겠습니다. 
-              엄격하게 선별된 매물 데이터베이스를 통해 최상의 주거 솔루션을 제공합니다.
-            </p>
-          </div>
-          <div className="bg-white p-12 rounded-[5rem] border border-[#F0EFEA] shadow-2xl">
-             <div className="bg-[#FCFBFA] aspect-[16/10] rounded-[3rem] flex items-center justify-center text-gray-300 font-bold text-3xl italic border border-[#F0EFEA] uppercase tracking-widest">
-               [인테리어 이미지]
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Our Partner (와이어프레임 하단 중앙 타이틀) */}
-      <section className="bg-white py-40 border-t border-[#F0EFEA]">
-        <div className="w-full px-8 md:px-16">
-          <h2 className="text-5xl md:text-6xl font-black text-[#4A4238] text-center mb-32 uppercase tracking-[0.5em]">Our Partner</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-20">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-60 border border-[#F0EFEA] rounded-[2.5rem] flex items-center justify-center text-gray-300 font-black text-4xl hover:bg-[#FAF9F6] transition-all cursor-default uppercase tracking-widest shadow-sm">Logo</div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Contact Us (와이어프레임 정보 좌측, 폼 우측) */}
-      <section className="bg-[#FAF9F6] py-40">
-        <div className="w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-48">
-          <div className="space-y-20">
-            <h2 className="text-6xl font-black text-[#4A4238] uppercase tracking-wider">Contact Us</h2>
-            <div className="space-y-16">
-              <div className="flex gap-10 items-start">
-                <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-[#4A4238] shadow-md shrink-0 border border-[#F0EFEA]">
-                  <MapPin size={40} />
+      {/* 4. Sale Section */}
+      <section id="sale-section" className="bg-white py-40 overflow-hidden">
+        <div className="w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-48 items-center">
+          <div className="space-y-12">
+            <div className="space-y-6 text-center lg:text-left">
+              <h2 className="text-6xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-tight">Sale Service</h2>
+              <div className="w-32 h-2 bg-[#D4C4A8]"></div>
+            </div>
+            <p className="text-gray-600 leading-[2.2] text-2xl font-medium text-center lg:text-left">
+              일본 부동산 시장의 투자 가치를 전문적으로 분석합니다. 
+              수익형 부동산부터 거주용 주택까지, 글로벌 하우징의 전문가 팀이 법률 및 세무 상담을 포함한 토탈 매매 솔루션을 제공합니다.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
+              {[
+                { title: "전문가 컨설팅", desc: "15년 경력 투자 매니저 배정" },
+                { title: "사후 관리 서비스", desc: "임대 관리 및 세무 업무 대행" }
+              ].map((box, i) => (
+                <div key={i} className="p-8 bg-[#FAF9F6] rounded-[2.5rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 cursor-default">
+                  <h4 className="text-xl md:text-2xl font-bold text-[#4A4238] group-hover:text-white mb-2 leading-none">{box.title}</h4>
+                  <p className="text-gray-500 group-hover:text-white/70 text-base md:text-lg font-medium">{box.desc}</p>
                 </div>
-                <div className="pt-4 space-y-2">
-                  <p className="font-bold text-[#4A4238] uppercase text-lg mb-2 tracking-widest opacity-40">Address</p>
-                  <p className="text-gray-600 text-2xl font-medium leading-relaxed">Tokyo, Minato-ku, Azabu-juban 1-2-3, Global Bld 4F</p>
-                </div>
-              </div>
-              <div className="flex gap-10 items-center">
-                <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-[#4A4238] shadow-md shrink-0 border border-[#F0EFEA]">
-                  <Mail size={40} />
-                </div>
-                <div className="space-y-2">
-                  <p className="font-bold text-[#4A4238] uppercase text-lg mb-2 tracking-widest opacity-40">E-mail</p>
-                  <p className="text-gray-600 text-2xl font-medium leading-relaxed">info@globalhousing.jp</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-          <div className="bg-white p-16 lg:p-24 rounded-[5rem] shadow-2xl border border-[#F0EFEA]">
-            <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
-              <div className="space-y-4">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-widest ml-2">Your Name</label>
-                <input type="text" placeholder="성함을 입력해주세요" className="w-full p-6 text-xl bg-[#FCFBFA] border border-[#F0EFEA] rounded-3xl outline-none focus:ring-4 focus:ring-[#4A4238]/5 transition-all" />
+          <div className="relative text-center">
+             <div className="bg-[#FAF9F6] p-12 rounded-[5rem] border border-[#F0EFEA] shadow-2xl relative z-10 mx-auto max-w-lg lg:max-w-none">
+               <div className="bg-white aspect-square rounded-[3.5rem] flex flex-col items-center justify-center p-10 space-y-8 shadow-inner">
+                 <Building size={100} className="text-[#D4C4A8]" strokeWidth={1} />
+                 <div className="space-y-2">
+                   <h3 className="text-3xl md:text-4xl font-black text-[#4A4238] uppercase tracking-tight leading-none text-[#4A4238]">Premium Asset</h3>
+                   <p className="text-lg md:text-xl font-bold text-[#D4C4A8] leading-none text-center">Management Strategy</p>
+                 </div>
+                 <button className="px-10 py-4 bg-[#4A4238] text-white rounded-2xl font-bold text-lg hover:bg-[#3d362d] transition-all shadow-xl">
+                   매매 상담 예약하기
+                 </button>
+               </div>
+             </div>
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-[#D4C4A8]/10 rounded-full -z-10 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-white py-40 border-t border-[#F0EFEA]">
+        <div className="w-full px-8 md:px-16 max-w-5xl mx-auto">
+          <div className="text-center mb-24">
+            <h2 className="text-5xl md:text-6xl font-black text-[#4A4238] uppercase tracking-[0.3em] mb-4 text-center leading-none text-[#4A4238]">FAQ</h2>
+            <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto"></div>
+          </div>
+          
+          <div className="space-y-6">
+            {[
+              { q: "비자가 아직 안 나왔는데 미리 계약할 수 있나요?", a: "네, 입학 허가서나 채용 내정 통지서가 있다면 비자 발급 전에도 심사 진행 및 가계약이 가능한 매물들이 다수 있습니다." },
+              { q: "한국에서 온라인으로 집을 보고 계약할 수 있나요?", a: "실시간 영상 투어와 IT 중설 시스템으로 한국에서도 정식 계약이 가능합니다. 입주일에 열쇠만 수령하세요." },
+              { q: "초기 비용은 보통 어느 정도 드나요?", a: "일반적으로 월세의 4~5개월분이 소요됩니다. 예산에 맞는 매물을 우선 선별해 드립니다." },
+              { q: "보증인이 없는 외국인도 계약이 가능한가요?", a: "네, 글로벌 하우징은 보증회사 제도를 활용하여 보증인 없이도 계약이 가능한 외국인 친화적 매물을 전문적으로 취급합니다." }
+            ].map((item, idx) => (
+              <div key={idx} className="rounded-[3rem] border border-[#F0EFEA] overflow-hidden">
+                <button 
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full p-10 flex justify-between items-center text-left bg-[#FAF9F6] hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex gap-6 items-center">
+                    <HelpCircle size={32} className="text-[#D4C4A8] shrink-0" />
+                    <span className="text-xl md:text-2xl font-bold text-[#4A4238] leading-tight text-[#4A4238]">{item.q}</span>
+                  </div>
+                  <div className="w-10 h-10 rounded-full border border-[#4A4238]/10 flex items-center justify-center shrink-0">
+                    {openFaq === idx ? <Minus size={20} className="text-[#4A4238]" /> : <Plus size={20} className="text-[#4A4238]" />}
+                  </div>
+                </button>
+                {openFaq === idx && (
+                  <div className="p-10 px-12 md:px-24 bg-white border-t border-[#F0EFEA] animate-in slide-in-from-top-4 duration-300 text-left">
+                    <p className="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed">{item.a}</p>
+                  </div>
+                )}
               </div>
-              <div className="space-y-4">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-widest ml-2">Email Address</label>
-                <input type="email" placeholder="이메일을 입력해주세요" className="w-full p-6 text-xl bg-[#FCFBFA] border border-[#F0EFEA] rounded-3xl outline-none focus:ring-4 focus:ring-[#4A4238]/5 transition-all" />
-              </div>
-              <div className="space-y-4">
-                <label className="text-sm font-bold text-gray-400 uppercase tracking-widest ml-2">Message</label>
-                <textarea placeholder="문의 내용을 남겨주세요" rows="6" className="w-full p-6 text-xl bg-[#FCFBFA] border border-[#F0EFEA] rounded-3xl outline-none focus:ring-4 focus:ring-[#4A4238]/5 resize-none transition-all"></textarea>
-              </div>
-              <button className="w-full bg-[#4A4238] text-white py-8 rounded-3xl font-bold text-2xl uppercase tracking-[0.4em] hover:bg-[#3d362d] transition-all shadow-2xl shadow-[#4A4238]/30 mt-6">
-                Send Message
-              </button>
-            </form>
+            ))}
           </div>
         </div>
       </section>
     </div>
   );
 
-  // --- Footer: 와이어프레임 하단 구성 ---
   const Footer = () => (
     <footer className="bg-white py-32 border-t border-[#F0EFEA]">
-      <div className="w-full px-8 md:px-16">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-20 mb-20">
-          {/* Logo & Text (좌측) */}
-          <div className="flex items-center gap-6">
-            <div className="w-16 h-16 bg-[#4A4238] rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-3xl">GH</span>
+      <div className="w-full px-8 md:px-16 text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-24 mb-24 text-center lg:text-left">
+          <div className="flex items-center gap-8 cursor-pointer mx-auto lg:mx-0" onClick={() => navigate('landing')}>
+            <div className="w-16 h-16 bg-[#4A4238] rounded-full flex items-center justify-center shadow-xl text-center">
+              <span className="text-white font-bold text-4xl leading-none text-center">GH</span>
             </div>
-            <span className="text-3xl font-bold text-[#4A4238] uppercase tracking-[0.3em]">GLOBAL HOUSING</span>
+            <span className="text-4xl font-black text-[#4A4238] uppercase tracking-[0.2em] leading-none text-[#4A4238]">GLOBAL HOUSING</span>
           </div>
 
-          {/* Nav Links (중앙) */}
-          <div className="flex flex-wrap justify-center gap-12 lg:gap-20 text-xl font-bold uppercase tracking-widest text-gray-400">
-            <button onClick={() => navigate('about')} className="hover:text-[#4A4238] transition-colors">About Us</button>
-            <button onClick={() => navigate('partners')} className="hover:text-[#4A4238] transition-colors">Partner</button>
-            <button onClick={() => navigate('contact')} className="hover:text-[#4A4238] transition-colors">Contact Us</button>
+          <div className="flex flex-wrap justify-center gap-16 text-2xl font-black uppercase tracking-widest text-gray-400 mx-auto lg:mx-0">
+            <button onClick={() => navigate('about')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">회사 소개</button>
+            <button onClick={() => navigate('partners')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">협력사</button>
+            <button onClick={() => navigate('contact')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">문의하기</button>
           </div>
 
-          {/* Social (우측) */}
-          <div className="flex gap-10">
+          <div className="flex gap-14 mx-auto lg:mx-0">
             {[Facebook, Instagram, Twitter].map((Icon, idx) => (
-              <Icon key={idx} className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={36} />
+              <Icon key={idx} className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={48} />
             ))}
           </div>
         </div>
-        <div className="pt-16 border-t border-[#F0EFEA] text-center">
-          <p className="text-gray-300 text-lg uppercase tracking-[0.6em]">© 2024 Global Housing. All rights reserved.</p>
+        <div className="pt-20 border-t border-[#F0EFEA] text-center">
+          <p className="text-gray-300 text-xl font-medium uppercase tracking-[0.6em] leading-none">© 2024 Global Housing. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -274,10 +332,12 @@ const App = () => {
       <Navbar />
       <main className="w-full">
         {currentPage === 'landing' ? <LandingPage /> : (
-          <div className="pt-64 pb-48 w-full px-8 md:px-16 min-h-[90vh] bg-[#FAF9F6]">
-            <h2 className="text-8xl font-black text-[#4A4238] uppercase tracking-widest mb-16">{currentPage}</h2>
-            <div className="w-48 h-3 bg-[#D4C4A8] rounded-full mb-20"></div>
-            <p className="text-gray-400 text-3xl font-medium tracking-widest">이 페이지는 현재 준비 중입니다.</p>
+          <div className="pt-48 pb-48 w-full px-8 md:px-16 min-h-[90vh] bg-[#FAF9F6] text-center flex flex-col items-center justify-center">
+            <h2 className="text-7xl md:text-8xl font-black text-[#4A4238] uppercase tracking-widest mb-16 leading-none text-[#4A4238]">
+              {currentPage === 'about' ? '회사 소개' : currentPage === 'partners' ? '협력사' : '문의하기'}
+            </h2>
+            <div className="w-64 h-4 bg-[#D4C4A8] rounded-full mb-24 mx-auto"></div>
+            <p className="text-gray-400 text-4xl font-bold tracking-[0.2em]">이 페이지는 현재 준비 중입니다.</p>
           </div>
         )}
       </main>
