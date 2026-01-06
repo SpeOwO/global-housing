@@ -1,8 +1,8 @@
+import { Award, ShieldCheck, Globe, Users, MapPin } from 'lucide-react';
+
 /**
  * [4. ABOUT US PAGE COMPONENTS]
  */
-
-import { Award, ShieldCheck, Globe, Users, MapPin } from 'lucide-react';
 
 const AboutPage = ({ navigate }) => (
   <div className="w-full text-left animate-in fade-in duration-500">

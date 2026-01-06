@@ -1,9 +1,9 @@
+import { Instagram, Youtube } from 'lucide-react';
+import NaverIcon from '../icons/NaverIcon';
+
 /**
  * [7. FOOTER COMPONENT]
  */
-
-import { Instagram, Youtube } from 'lucide-react';
-import NaverIcon from '../icons/NaverIcon';
 
 const Footer = ({ navigate }) => (
   <footer className="bg-white py-24 border-t border-[#F0EFEA]">

@@ -1,8 +1,8 @@
+import { Menu, X } from 'lucide-react';
+
 /**
  * [2. NAVIGATION COMPONENTS]
  */
-
-import { Menu, X } from 'lucide-react';
 
 const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
   <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-[#F0EFEA]">

@@ -1,8 +1,8 @@
+import { ArrowRight, Home, Building2, Building, UserCheck, HeartHandshake } from 'lucide-react';
+
 /**
  * [3. LANDING PAGE COMPONENT]
  */
-
-import { ArrowRight, Home, Building2, Building, UserCheck, HeartHandshake } from 'lucide-react';
 
 const LandingPage = ({ navigate, scrollToSection }) => (
   <div className="w-full animate-in fade-in duration-500">
