@@ -1,4 +1,5 @@
 // 네이버 블로그 커스텀 아이콘 (잘림 방지 및 꽉 찬 정자체 B 형상 수정)
+
 const NaverIcon = ({ size = 24, className = "" }) => (
   <svg 
     width={size} 

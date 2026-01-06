@@ -1,6 +1,7 @@
 /**
  * [4. ABOUT US PAGE COMPONENTS]
  */
+
 import { Award, ShieldCheck, Globe, Users, MapPin } from 'lucide-react';
 
 const AboutPage = ({ navigate }) => (

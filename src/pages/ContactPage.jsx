@@ -1,10 +1,10 @@
-import { Mail, Instagram, Youtube, MapPin, ExternalLink, MessageCircle } from 'lucide-react';
-import KakaoIcon from '../components/icons/KakaoIcon';
-import NaverIcon from '../components/icons/NaverIcon';
-
 /**
  * [6. CONTACT PAGE COMPONENT]
  */
+
+import { Mail, Instagram, Youtube, MapPin, ExternalLink, MessageCircle } from 'lucide-react';
+import KakaoIcon from '../components/icons/KakaoIcon';
+import NaverIcon from '../components/icons/NaverIcon';
 
 const ContactPage = () => (
   <div className="w-full animate-in fade-in duration-500 text-center">

@@ -1,6 +1,7 @@
 /**
  * [7. FOOTER COMPONENT]
  */
+
 import { Instagram, Youtube } from 'lucide-react';
 import NaverIcon from '../icons/NaverIcon';
 

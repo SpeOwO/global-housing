@@ -1,8 +1,8 @@
-import { GraduationCap, BookOpen, Truck, FileSearch, ShieldCheck } from 'lucide-react';
-
 /**
  * [5. PARTNERS PAGE COMPONENT]
  */
+
+import { GraduationCap, BookOpen, Truck, FileSearch, ShieldCheck } from 'lucide-react';
 
 const PartnersPage = () => {
   const partnerList = [

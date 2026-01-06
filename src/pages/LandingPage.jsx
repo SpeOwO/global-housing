@@ -1,3 +1,7 @@
+/**
+ * [3. LANDING PAGE COMPONENT]
+ */
+
 import { ArrowRight, Home, Building2, Building, UserCheck, HeartHandshake } from 'lucide-react';
 
 const LandingPage = ({ navigate, scrollToSection }) => (

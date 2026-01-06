@@ -1,4 +1,5 @@
 // 카카오톡 커스텀 아이콘
+
 const KakaoIcon = ({ size = 24, className = "" }) => (
   <svg 
     width={size} 
