@@ -19,12 +19,16 @@ const ContactPage = () => (
 
     <section className="bg-[#FAF9F6] py-24">
       <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 text-center md:text-left text-center">
+          <h3 className="text-3xl font-black text-[#4A4238] uppercase tracking-tighter text-center break-keep">Official Channel</h3>
+          <p className="text-gray-500 font-bold text-center break-keep">다양한 채널을 통해 상담이 가능합니다.</p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center text-center">
           {[
-            { label: 'E-mail', value: 'info@globalhousing.jp', icon: Mail, color: 'bg-blue-50 text-blue-600', link: 'mailto:info@globalhousing.jp' },
+            { label: 'E-mail', value: 'Email 문의', icon: Mail, color: 'bg-blue-50 text-blue-600', link: 'mailto:kek8274@gmail.com' },
             { label: 'LINE', value: 'GlobalHousing_JP', icon: MessageCircle, color: 'bg-green-50 text-green-600', link: '#' },
-            { label: 'Insta DM', value: '@globalhousing', icon: Instagram, color: 'bg-pink-50 text-pink-600', link: '#' },
-            { label: 'KakaoTalk', value: '글로벌하우징', icon: KakaoIcon, color: 'bg-yellow-50 text-yellow-700', link: '#' }
+            { label: 'Insta DM', value: '@global_housing_korea', icon: Instagram, color: 'bg-pink-50 text-pink-600', link: 'https://www.instagram.com/global_housing_korea/' },
+            { label: 'KakaoTalk', value: '모바일 전용', icon: KakaoIcon, color: 'bg-yellow-50 text-yellow-700', link: 'http://qr.kakao.com/talk/s02.pBdxuFbz5mBgmm_P_IrBMCY-' }
           ].map((item, i) => (
             <a 
               key={i} 
@@ -46,7 +50,7 @@ const ContactPage = () => (
       <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center text-center">
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 text-center md:text-left text-center">
           <h3 className="text-3xl font-black text-[#4A4238] uppercase tracking-tighter text-center break-keep">Official Media</h3>
-          <p className="text-gray-500 font-bold text-center break-keep">다양한 채널을 통해 일본 부동산 정보를 확인하세요.</p>
+          <p className="text-gray-500 font-bold text-center break-keep">다양한 미디어를 통해 일본 부동산 정보를 확인하세요.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-center">
           {[
