@@ -46,7 +46,7 @@ const NaverIcon = ({ size = 24, className = "" }) => (
     className={className}
   >
     <path 
-      d="M6 2h8c3.314 0 6 2.686 6 6 0 2.21-1.2 4.1-3 5.1 1.8 1 3 2.89 3 5.1 0 3.314-2.686 6-6 6H6V2zm3 3v6h5c1.105 0 2-.895 2-2s-.895-2-2-2H9zm0 9v6h5.5c1.105 0 2-.895 2-2s-.895-2-2-2H9z" 
+      d="M6 2h8c3.866 0 7 2.686 7 6 0 1.933-1.067 3.633-2.652 4.5 1.585 0.867 2.652 2.567 2.652 4.5 0 3.314-3.134 6-7 6H6V2zm3 3v6h5c1.657 0 3-1.343 3-3s-1.343-3-3-3H9zm0 9v7h6c1.657 0 3-1.343 3-3s-1.343-4-3-4H9z" 
       fill="currentColor"
     />
   </svg>
@@ -118,12 +118,11 @@ const LandingPage = ({ navigate, scrollToSection }) => (
       <div className="relative w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
         <div className="space-y-10 max-w-4xl text-center lg:text-left">
           <div className="space-y-4">
-            <h1 className="text-3xl md:text-6xl lg:text-7xl font-black text-[#4A4238] leading-tight md:leading-[1.2]">
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-black text-[#4A4238] leading-tight md:leading-[1.2] break-keep">
               일본 집 구하기는?<br />
-              {/* 색상을 빼달라는 요청에 따라 강조 색상을 제거하고 기본 텍스트 색상 적용 */}
               글로벌 하우징
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-gray-500 mt-8 leading-relaxed">
+            <p className="text-2xl md:text-3xl font-bold text-gray-500 mt-8 leading-relaxed break-keep">
               왜 모두 글로벌 하우징을 선택할까요?
             </p>
           </div>
@@ -149,9 +148,9 @@ const LandingPage = ({ navigate, scrollToSection }) => (
               <div className="p-7 bg-white/10 backdrop-blur-xl rounded-[2rem] border border-white/20 mb-2"><card.icon size={50} strokeWidth={1} /></div>
               <div className="space-y-2">
                 <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase">{card.sub}</span>
-                <h3 className="text-7xl font-black uppercase tracking-tighter leading-none">{card.title}</h3>
+                <h3 className="text-7xl font-black uppercase tracking-tighter leading-none break-keep">{card.title}</h3>
               </div>
-              <p className="text-xl font-bold opacity-90 max-w-xs">{card.desc}</p>
+              <p className="text-xl font-bold opacity-90 max-w-xs break-keep">{card.desc}</p>
               <div className="pt-6 flex items-center gap-4 text-sm font-black tracking-widest bg-white text-[#4A4238] px-8 py-4 rounded-full translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl text-center">
                 VIEW DETAILS <ArrowRight size={18} />
               </div>
@@ -199,16 +198,16 @@ const LandingPage = ({ navigate, scrollToSection }) => (
         <div className="space-y-12 text-center lg:text-left">
           <div className="space-y-6">
             <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block">Investment Guide</span>
-            <h2 className="text-6xl md:text-8xl font-black text-[#4A4238] uppercase tracking-widest leading-none">Sale<br />Service</h2>
+            <h2 className="text-6xl md:text-8xl font-black text-[#4A4238] uppercase tracking-widest leading-none break-keep">Sale<br />Service</h2>
             <div className="w-32 h-2 bg-[#4A4238] rounded-full mx-auto lg:mx-0"></div>
           </div>
-          <p className="text-gray-600 leading-[2] text-xl md:text-2xl font-bold max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">단순한 매매를 넘어, 일본 부동산 시장의 흐름을 분석하고<br /><span className="text-[#4A4238]">최적의 자산 가치 창출</span>을 위한 토탈 솔루션을 제안합니다.</p>
+          <p className="text-gray-600 leading-[2] text-xl md:text-2xl font-bold max-w-2xl mx-auto lg:mx-0 break-keep">단순한 매매를 넘어, 일본 부동산 시장의 흐름을 분석하고<br /><span className="text-[#4A4238]">최적의 자산 가치 창출</span>을 위한 토탈 솔루션을 제안합니다.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
             {[{ title: "전문가 컨설팅", desc: "15년 경력 투자 매니저 배정", icon: UserCheck }, { title: "사후 관리 서비스", desc: "임대 관리 및 세무 업무 지원", icon: HeartHandshake }].map((box, i) => (
               <div key={i} className="p-10 bg-[#FAF9F6] rounded-[2.5rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 shadow-lg hover:shadow-2xl text-center lg:text-left">
                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#D4C4A8] transition-all mx-auto lg:mx-0 text-center lg:text-left"><box.icon size={28} className="text-[#4A4238] group-hover:text-white" /></div>
-                <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2 leading-none text-center lg:text-left">{box.title}</h4>
-                <p className="text-gray-500 group-hover:text-white/70 text-base font-bold text-center lg:text-left">{box.desc}</p>
+                <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2 leading-none break-keep">{box.title}</h4>
+                <p className="text-gray-500 group-hover:text-white/70 text-base font-bold break-keep">{box.desc}</p>
               </div>
             ))}
           </div>
@@ -218,8 +217,8 @@ const LandingPage = ({ navigate, scrollToSection }) => (
              <div className="bg-[#4A4238] aspect-square rounded-[4rem] flex flex-col items-center justify-center p-12 space-y-10 text-white shadow-inner">
                <Building size={100} className="text-[#D4C4A8]" strokeWidth={1} />
                <div className="space-y-4">
-                 <h3 className="text-4xl font-black uppercase tracking-tight leading-none">Premium Asset</h3>
-                 <p className="text-lg font-bold text-[#D4C4A8] uppercase tracking-[0.2em]">Management Strategy</p>
+                 <h3 className="text-4xl font-black uppercase tracking-tight leading-none break-keep">Premium Asset</h3>
+                 <p className="text-lg font-bold text-[#D4C4A8] uppercase tracking-[0.2em] break-keep">Management Strategy</p>
                </div>
                <button onClick={() => navigate('contact')} className="w-full bg-[#D4C4A8] text-[#4A4238] py-6 rounded-3xl font-black text-xl uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-2xl text-nowrap px-4">상담 예약하기</button>
              </div>
@@ -237,16 +236,16 @@ const LandingPage = ({ navigate, scrollToSection }) => (
 
 const AboutPage = ({ navigate }) => (
   <div className="w-full text-left animate-in fade-in duration-500">
-    {/* Vision Section - 글자 크기를 요청에 따라 전체적으로 축소 조정 */}
+    {/* Vision Section */}
     <section className="relative min-h-screen flex items-center pt-24 pb-32 bg-[#4A4238] overflow-hidden text-left">
       <div className="absolute inset-0 opacity-20 text-left">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1449156001437-3a1661acda2e?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1449156001437-3a1661acda2e?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center text-left"></div>
       </div>
       <div className="relative w-full px-8 md:px-16 lg:px-24 z-10 text-center lg:text-left text-left">
         <div className="max-w-5xl space-y-8 mx-auto lg:mx-0 text-left">
           <span className="inline-block text-center text-[#D4C4A8] font-black tracking-[0.5em] text-xs uppercase px-4 py-2 border border-[#D4C4A8]/30 rounded-full mb-4">Our vision</span>
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-white leading-none tracking-tighter text-left">Connecting <br /><span className="text-[#D4C4A8]">Global Lives</span></h1>
-          <p className="text-lg md:text-2xl font-bold text-gray-300 max-w-3xl leading-relaxed mx-auto lg:mx-0 text-left">글로벌 하우징은 국경을 넘어 모든 고객이 일본에서 새로운 삶의 시작을 안심하고 설계할 수 있도록 돕는 신뢰의 가교입니다.</p>
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-white leading-none tracking-tighter text-left break-keep">Connecting <br /><span className="text-[#D4C4A8]">Global Lives</span></h1>
+          <p className="text-lg md:text-2xl font-bold text-gray-300 max-w-3xl leading-relaxed mx-auto lg:mx-0 text-left break-keep">글로벌 하우징은 국경을 넘어 모든 고객이 일본에서 새로운 삶의 시작을 안심하고 설계할 수 있도록 돕는 신뢰의 가교입니다.</p>
         </div>
       </div>
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block text-[#D4C4A8] z-20">
@@ -263,10 +262,10 @@ const AboutPage = ({ navigate }) => (
           <div className="space-y-10">
             <div className="space-y-4 text-center lg:text-left">
               <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase">Philosophy</span>
-              <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] leading-tight uppercase">Core<br />Values</h2>
+              <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] leading-tight uppercase break-keep">Core<br />Values</h2>
               <div className="w-32 h-2 bg-[#D4C4A8] rounded-full mx-auto lg:mx-0"></div>
             </div>
-            <p className="text-xl text-gray-500 font-bold leading-relaxed text-center lg:text-left">단순한 중개를 넘어 라이프스타일 큐레이터로서 정착의 모든 과정을 함께합니다. 고객의 신뢰를 가장 큰 자산으로 여깁니다.</p>
+            <p className="text-xl text-gray-500 font-bold leading-relaxed text-center lg:text-left break-keep">단순한 중개를 넘어 라이프스타일 큐레이터로서 정착의 모든 과정을 함께합니다. 고객의 신뢰를 가장 큰 자산으로 여깁니다.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -277,9 +276,9 @@ const AboutPage = ({ navigate }) => (
             ].map((value, i) => (
               <div key={i} className="p-8 bg-[#FAF9F6] rounded-[2.5rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 shadow-lg text-left isolate translate-z-0">
                 <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#D4C4A8] transition-all shadow-sm"><value.icon size={24} className="text-[#4A4238] group-hover:text-white" /></div>
-                <h4 className="text-xl font-black text-[#4A4238] group-hover:text-white mb-1">{value.title}</h4>
-                <span className="text-[#D4C4A8] font-bold text-xs uppercase tracking-widest block mb-4">{value.sub}</span>
-                <p className="text-gray-400 group-hover:text-white/70 text-sm font-bold leading-relaxed">{value.desc}</p>
+                <h4 className="text-xl font-black text-[#4A4238] group-hover:text-white mb-1 break-keep">{value.title}</h4>
+                <span className="text-[#D4C4A8] font-bold text-xs uppercase tracking-widest block mb-4 break-keep">{value.sub}</span>
+                <p className="text-gray-400 group-hover:text-white/70 text-sm font-bold leading-relaxed break-keep">{value.desc}</p>
               </div>
             ))}
           </div>
@@ -291,8 +290,8 @@ const AboutPage = ({ navigate }) => (
       <div className="w-full px-8 md:px-16 lg:px-24 mb-16">
         <div className="max-w-4xl space-y-4">
           <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block">Premium Location</span>
-          <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] leading-tight text-center lg:text-left">Shinjuku <span className="text-[#D4C4A8]">Miraina Tower</span></h2>
-          <div className="w-24 h-1.5 bg-[#4A4238] rounded-full mx-auto lg:mx-0"></div>
+          <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] leading-tight text-center lg:text-left break-keep">Shinjuku <span className="text-[#D4C4A8]">Miraina Tower</span></h2>
+          <div className="w-24 h-1.5 bg-[#4A4238] rounded-full mx-auto lg:mx-0 text-center lg:text-left"></div>
         </div>
       </div>
       <div className="w-full px-8 md:px-16 lg:px-24 grid grid-cols-1 gap-12 text-center lg:text-left">
@@ -301,7 +300,7 @@ const AboutPage = ({ navigate }) => (
             <div className="relative aspect-[21/9] md:aspect-[2.4/1] w-full rounded-[3rem] overflow-hidden text-center lg:text-left mx-auto lg:mx-0 text-left">
               <img src="/office.jpg" alt="신주쿠 미라이나 타워 전경" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-12 text-left">
-                 <p className="text-white text-xl md:text-3xl font-black tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-700">A New Hub for Global Success in Shinjuku</p>
+                 <p className="text-white text-xl md:text-3xl font-black tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-700 break-keep">A New Hub for Global Success in Shinjuku</p>
               </div>
             </div>
           </div>
@@ -309,12 +308,12 @@ const AboutPage = ({ navigate }) => (
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mt-8 text-left">
           <div className="lg:col-span-2 space-y-6 text-center lg:text-left text-left">
-            <p className="text-2xl md:text-3xl font-black text-[#4A4238] leading-tight text-left">신주쿠의 새로운 중심, 미라이나 타워에서<br />글로벌 하우징의 미래를 만듭니다.</p>
-            <p className="text-lg text-gray-500 font-bold leading-relaxed max-w-3xl mx-auto lg:mx-0 text-center lg:text-left text-center lg:text-left text-left">신주쿠역 미라이나 개찰구와 직접 연결된 '신주쿠 미라이나 타워'는 도쿄의 역동성을 상징하는 랜드마크입니다. 글로벌 하우징은 이곳에서 최첨단 비즈니스 환경과 압도적인 접근성을 바탕으로 고객을 맞이합니다.</p>
+            <p className="text-2xl md:text-3xl font-black text-[#4A4238] leading-tight text-left break-keep">신주쿠의 새로운 중심, 미라이나 타워에서<br />글로벌 하우징의 미래를 만듭니다.</p>
+            <p className="text-lg text-gray-500 font-bold leading-relaxed max-w-3xl mx-auto lg:mx-0 text-center lg:text-left text-center lg:text-left text-left break-keep">신주쿠역 미라이나 개찰구와 직접 연결된 '신주쿠 미라이나 타워'는 도쿄의 역동성을 상징하는 랜드마크입니다. 글로벌 하우징은 이곳에서 최첨단 비즈니스 환경과 압도적인 접근성을 바탕으로 고객을 맞이합니다.</p>
           </div>
-          <div className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] space-y-8 shadow-sm text-left">
-            <div className="flex gap-5 items-center text-left text-left"><div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0"><MapPin size={24} /></div><p className="font-black text-[#4A4238] uppercase tracking-widest text-sm">Office Info</p></div>
-            <div className="space-y-2 text-left"><p className="text-gray-400 text-xs font-black uppercase tracking-widest text-left">Address</p><p className="text-gray-600 font-bold leading-relaxed text-left">4 Chome-1-6 Shinjuku, Shinjuku City, Tokyo 160-0022<br />Shinjuku Miraina Tower</p></div>
+          <div className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] shadow-sm text-left">
+            <div className="flex gap-5 items-center text-left text-left"><div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0"><MapPin size={24} /></div><p className="font-black text-[#4A4238] uppercase tracking-widest text-sm break-keep">Office Info</p></div>
+            <div className="space-y-2 text-left"><p className="text-gray-400 text-xs font-black uppercase tracking-widest text-left break-keep">Address</p><p className="text-gray-600 font-bold leading-relaxed text-left break-keep">4 Chome-1-6 Shinjuku, Shinjuku City, Tokyo 160-0022<br />Shinjuku Miraina Tower</p></div>
             <button onClick={() => navigate('contact')} className="w-full bg-[#4A4238] text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#3d362d] transition-all">상담 방문 예약하기</button>
           </div>
         </div>
@@ -336,15 +335,15 @@ const AboutPage = ({ navigate }) => (
           <div className="w-full lg:w-1/2 space-y-10 text-center lg:text-left text-left">
             <div className="space-y-6 text-center lg:text-left text-left">
               <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block text-left">Ceo Message</span>
-              <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] leading-tight text-left">당신의 새로운 시작,<br />글로벌 하우징이 함께합니다.</h2>
+              <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] leading-tight text-left break-keep">당신의 새로운 시작,<br />글로벌 하우징이 함께합니다.</h2>
             </div>
-            <div className="space-y-8 text-lg text-gray-600 font-bold leading-relaxed italic text-center lg:text-left text-left">
+            <div className="space-y-8 text-lg text-gray-600 font-bold leading-relaxed italic text-center lg:text-left text-left break-keep">
               <p>"일본에서의 첫 시작은 설렘만큼이나 두려움도 크다는 것을 잘 알고 있습니다. 언어와 문화의 장벽 앞에서 누구보다 진심으로 임하겠습니다."</p>
               <p>"우리는 고객이 일본 사회에 안정적으로 정착하고 더 큰 미래를 꿈꿀 수 있는 주거 기반을 제공하는 것에 자부심을 느낍니다."</p>
             </div>
             <div className="pt-6 border-t border-[#4A4238]/10 text-center lg:text-left">
-              <p className="text-2xl font-black text-[#4A4238]">Global Housing Team</p>
-              <p className="text-[#D4C4A8] font-black tracking-widest uppercase text-sm">Global Real Estate Solution</p>
+              <p className="text-2xl font-black text-[#4A4238] break-keep">Global Housing Team</p>
+              <p className="text-[#D4C4A8] font-black tracking-widest uppercase text-sm break-keep">Global Real Estate Solution</p>
             </div>
           </div>
         </div>
@@ -368,19 +367,19 @@ const PartnersPage = () => {
   ];
 
   return (
-    <div className="w-full animate-in fade-in duration-500">
-      <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA]">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
-          <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4">Our Network</span>
-          <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center">Official Partners</h2>
+    <div className="w-full animate-in fade-in duration-500 text-center">
+      <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA] text-center">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center text-center">
+          <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4 text-center">Our Network</span>
+          <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center break-keep">Official Partners</h2>
           <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full text-center"></div>
-          <p className="mt-8 text-xl text-gray-500 font-bold max-w-2xl mx-auto">글로벌 하우징과 함께 더 높은 가치를 만들어가는 검증된 파트너사들을 소개합니다.</p>
+          <p className="mt-8 text-xl text-gray-500 font-bold max-w-2xl mx-auto text-center text-center break-keep">글로벌 하우징과 함께 더 높은 가치를 만들어가는 검증된 파트너사들을 소개합니다.</p>
         </div>
       </section>
 
       <section className="bg-[#FAF9F6] py-24 min-h-screen">
-        <div className="max-w-7xl mx-auto px-8 md:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
             {partnerList.map((partner) => (
               <div 
                 key={partner.id} 
@@ -389,11 +388,11 @@ const PartnersPage = () => {
                 <div className="w-20 h-20 bg-[#FAF9F6] rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:bg-[#4A4238] transition-colors duration-500">
                   <partner.icon size={40} className="text-[#4A4238] group-hover:text-[#D4C4A8] transition-colors" />
                 </div>
-                <div className="space-y-4 flex-grow">
-                  <span className="text-[#D4C4A8] font-black text-[10px] uppercase tracking-[0.3em] block">{partner.category}</span>
-                  <h4 className="text-2xl font-black text-[#4A4238]">{partner.name}</h4>
-                  <div className="w-10 h-1 bg-[#F0EFEA] mx-auto"></div>
-                  <p className="text-gray-500 font-bold leading-relaxed text-sm">{partner.desc}</p>
+                <div className="space-y-4 flex-grow text-center">
+                  <span className="text-[#D4C4A8] font-black text-[10px] uppercase tracking-[0.3em] block break-keep">{partner.category}</span>
+                  <h4 className="text-2xl font-black text-[#4A4238] break-keep">{partner.name}</h4>
+                  <div className="w-10 h-1 bg-[#F0EFEA] mx-auto text-center"></div>
+                  <p className="text-gray-500 font-bold leading-relaxed text-sm text-center break-keep">{partner.desc}</p>
                 </div>
                 <button className="mt-10 px-8 py-3 bg-[#FAF9F6] text-[#4A4238] rounded-full font-black text-xs uppercase tracking-widest border border-[#F0EFEA] group-hover:bg-[#4A4238] group-hover:text-white group-hover:border-[#4A4238] transition-all">
                   Learn More
@@ -413,18 +412,18 @@ const PartnersPage = () => {
 
 const ContactPage = () => (
   <div className="w-full animate-in fade-in duration-500 text-center">
-    <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA] text-center">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
-        <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4 text-center">Connect with us</span>
-        <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center">Contact Us</h2>
-        <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full text-center"></div>
-        <p className="mt-8 text-xl text-gray-500 font-bold">성공적인 일본 정착을 위한 첫걸음, 글로벌 하우징이 함께합니다.</p>
+    <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA] text-center text-center">
+      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center">
+        <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4 text-center text-center">Connect with us</span>
+        <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center break-keep">Contact Us</h2>
+        <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full text-center text-center text-center"></div>
+        <p className="mt-8 text-xl text-gray-500 font-bold text-center text-center text-center break-keep">성공적인 일본 정착을 위한 첫걸음, 글로벌 하우징이 함께합니다.</p>
       </div>
     </section>
 
     <section className="bg-[#FAF9F6] py-24">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center text-center">
           {[
             { label: 'E-mail', value: 'info@globalhousing.jp', icon: Mail, color: 'bg-blue-50 text-blue-600', link: 'mailto:info@globalhousing.jp' },
             { label: 'LINE', value: 'GlobalHousing_JP', icon: MessageCircle, color: 'bg-green-50 text-green-600', link: '#' },
@@ -434,13 +433,13 @@ const ContactPage = () => (
             <a 
               key={i} 
               href={item.link} 
-              className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-[#F0EFEA] hover:shadow-xl transition-all group text-center"
+              className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-[#F0EFEA] hover:shadow-xl transition-all group text-center text-center text-center"
             >
               <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform`}>
                 <item.icon size={32} />
               </div>
-              <p className="text-gray-400 font-black text-[10px] uppercase tracking-widest mb-1">{item.label}</p>
-              <p className="text-[#4A4238] font-black text-lg break-all">{item.value}</p>
+              <p className="text-gray-400 font-black text-[10px] uppercase tracking-widest mb-1 text-center break-keep">{item.label}</p>
+              <p className="text-[#4A4238] font-black text-lg break-all text-center break-keep">{item.value}</p>
             </a>
           ))}
         </div>
@@ -448,22 +447,22 @@ const ContactPage = () => (
     </section>
 
     <section className="bg-white py-24">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 text-center md:text-left">
-          <h3 className="text-3xl font-black text-[#4A4238] uppercase tracking-tighter">Official Media</h3>
-          <p className="text-gray-500 font-bold">다양한 채널을 통해 일본 부동산 정보를 확인하세요.</p>
+      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center text-center">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 text-center md:text-left text-center">
+          <h3 className="text-3xl font-black text-[#4A4238] uppercase tracking-tighter text-center break-keep">Official Media</h3>
+          <p className="text-gray-500 font-bold text-center break-keep">다양한 채널을 통해 일본 부동산 정보를 확인하세요.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-center">
           {[
             { name: 'Instagram', desc: '최신 매물 정보와 일본 생활 트렌드', icon: Instagram, color: 'text-pink-600' },
             { name: 'Naver Blog', desc: '전문적인 일본 부동산 시장 분석 및 가이드', icon: NaverIcon, color: 'text-green-600' },
             { name: 'YouTube', desc: '생생한 매물 투어 및 현지 생활 브이로그', icon: Youtube, color: 'text-red-600' }
           ].map((media, i) => (
-            <div key={i} className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 text-center">
-              <media.icon size={48} className={`${media.color} group-hover:text-white transition-colors mb-6 text-center mx-auto`} />
-              <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2">{media.name}</h4>
-              <p className="text-gray-500 group-hover:text-white/70 font-bold mb-6 text-center">{media.desc}</p>
-              <div className="inline-flex items-center gap-2 text-[#D4C4A8] font-black text-sm uppercase tracking-widest">
+            <div key={i} className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 text-center text-center text-center">
+              <media.icon size={48} className={`${media.color} group-hover:text-white transition-colors mb-6 text-center mx-auto text-center`} />
+              <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2 text-center break-keep">{media.name}</h4>
+              <p className="text-gray-500 group-hover:text-white/70 font-bold mb-6 text-center text-center break-keep">{media.desc}</p>
+              <div className="inline-flex items-center gap-2 text-[#D4C4A8] font-black text-sm uppercase tracking-widest text-center">
                 Visit Channel <ExternalLink size={16} />
               </div>
             </div>
@@ -473,29 +472,25 @@ const ContactPage = () => (
     </section>
 
     <section className="bg-[#FAF9F6] py-24">
-      <div className="max-w-7xl mx-auto px-8 md:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-8 md:px-16 text-center lg:text-left text-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-center lg:text-left">
           <div className="space-y-10 text-center lg:text-left">
-            <div className="space-y-4">
-              <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block">Main Office</span>
-              <h3 className="text-4xl md:text-5xl font-black text-[#4A4238] leading-tight">Shinjuku <br />Miraina Tower</h3>
-              <div className="w-20 h-1 bg-[#4A4238] mx-auto lg:mx-0"></div>
+            <div className="space-y-4 text-center lg:text-left">
+              <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block text-center lg:text-left">Main Office</span>
+              <h3 className="text-4xl md:text-5xl font-black text-[#4A4238] leading-tight text-center lg:text-left break-keep">Shinjuku <br />Miraina Tower</h3>
+              <div className="w-20 h-1 bg-[#4A4238] mx-auto lg:mx-0 text-center lg:text-left"></div>
             </div>
-            <div className="space-y-6">
-              <div className="flex gap-6 items-start justify-center lg:justify-start">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0"><MapPin size={24} /></div>
-                <div className="text-left">
-                  <p className="font-black text-[#4A4238] text-sm uppercase tracking-widest mb-1 opacity-40">Location</p>
-                  <p className="text-gray-600 font-bold text-lg leading-relaxed">4 Chome-1-6 Shinjuku, Shinjuku City,<br />Tokyo 160-0022</p>
+            <div className="space-y-6 text-center lg:text-left">
+              <div className="flex gap-6 items-start justify-center lg:justify-start text-left text-left">
+                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#4A4238] shadow-sm shrink-0 text-center"><MapPin size={24} /></div>
+                <div className="text-left text-left text-left">
+                  <p className="font-black text-[#4A4238] text-sm uppercase tracking-widest mb-1 opacity-40 text-left">Location</p>
+                  <p className="text-gray-600 font-bold text-lg leading-relaxed text-left break-keep">4 Chome-1-6 Shinjuku, Shinjuku City,<br />Tokyo 160-0022</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-white p-4 rounded-[4rem] shadow-xl">
-            <div className="aspect-video bg-gray-100 rounded-[3rem] flex items-center justify-center overflow-hidden">
-               <img src="/office.jpg" alt="Miraina Tower" className="w-full h-full object-cover" />
-            </div>
-          </div>
+          <div className="bg-white p-4 rounded-[4rem] shadow-xl text-center"><div className="aspect-video bg-gray-100 rounded-[3rem] flex items-center justify-center overflow-hidden text-center"><img src="/office.jpg" alt="Miraina Tower" className="w-full h-full object-cover" /></div></div>
         </div>
       </div>
     </section>
@@ -508,23 +503,23 @@ const ContactPage = () => (
 
 const Footer = ({ navigate }) => (
   <footer className="bg-white py-24 border-t border-[#F0EFEA]">
-    <div className="w-full px-8 md:px-16 text-center lg:text-left text-center">
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-16 mb-16 text-center lg:text-left">
-        <div className="flex items-center gap-8 cursor-pointer mx-auto lg:mx-0 text-center lg:text-left" onClick={() => navigate('landing')}>
-          <img src="/long_globalhousing.png" alt="Global Housing Logo" className="h-8 md:h-10 w-auto object-contain text-center" onError={(e) => { e.target.style.display = 'none'; }} />
+    <div className="w-full px-8 md:px-16 text-center lg:text-left text-center text-center">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-16 mb-16 text-center lg:text-left text-center">
+        <div className="flex items-center gap-8 cursor-pointer mx-auto lg:mx-0 text-center lg:text-left text-center" onClick={() => navigate('landing')}>
+          <img src="/long_globalhousing.png" alt="Global Housing Logo" className="h-8 md:h-10 w-auto object-contain text-center text-center" onError={(e) => { e.target.style.display = 'none'; }} />
         </div>
-        <div className="flex flex-wrap justify-center gap-12 text-lg font-black uppercase tracking-widest text-gray-400 mx-auto lg:mx-0 text-center lg:text-left">
+        <div className="flex flex-wrap justify-center gap-12 text-lg font-black uppercase tracking-widest text-gray-400 mx-auto lg:mx-0 text-center lg:text-left text-center">
           <button onClick={() => navigate('about')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">회사 소개</button>
           <button onClick={() => navigate('partners')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">협력사</button>
           <button onClick={() => navigate('contact')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">문의하기</button>
         </div>
-        <div className="flex gap-10 mx-auto lg:mx-0 text-center">
-          <Instagram className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={32} />
-          <NaverIcon size={32} className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" />
-          <Youtube className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer" size={32} />
+        <div className="flex gap-10 mx-auto lg:mx-0 text-center text-center text-center text-center">
+          <Instagram className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer text-center text-center" size={32} />
+          <NaverIcon size={32} className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer text-center text-center" />
+          <Youtube className="text-gray-300 hover:text-[#4A4238] transition-colors cursor-pointer text-center text-center" size={32} />
         </div>
       </div>
-      <div className="pt-16 border-t border-[#F0EFEA] text-center text-gray-300 text-xs font-bold uppercase tracking-[0.6em]">
+      <div className="pt-16 border-t border-[#F0EFEA] text-center text-gray-300 text-xs font-bold uppercase tracking-[0.6em] text-center text-center">
         © 2024 Global Housing. All rights reserved.
       </div>
     </div>
@@ -569,7 +564,7 @@ const App = () => {
       
       <Navbar currentPage={currentPage} navigate={navigate} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
       
-      <main className="w-full">   
+      <main className="w-full">
         {currentPage === 'landing' && <LandingPage navigate={navigate} scrollToSection={scrollToSection} />}
         {currentPage === 'about' && <AboutPage navigate={navigate} />}
         {currentPage === 'contact' && <ContactPage />}
