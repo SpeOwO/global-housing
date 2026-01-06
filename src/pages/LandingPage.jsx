@@ -45,9 +45,19 @@ const LandingPage = ({ navigate, scrollToSection }) => (
                 <h3 className="text-7xl font-black uppercase tracking-tighter leading-none break-keep">{card.title}</h3>
               </div>
               <p className="text-xl font-bold opacity-90 max-w-xs break-keep">{card.desc}</p>
-              <div className="pt-6 flex items-center gap-4 text-sm font-black tracking-widest bg-white text-[#4A4238] px-8 py-4 rounded-full translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl text-center">
-                VIEW DETAILS <ArrowRight size={18} />
-              </div>
+              <div
+                className="
+                    pt-6 flex items-center gap-4 text-sm font-black tracking-widest
+                    bg-white text-[#4A4238] px-8 py-4 rounded-full
+                    shadow-xl text-center
+                    opacity-100 translate-y-0
+                    md:opacity-0 md:translate-y-10
+                    md:group-hover:opacity-100 md:group-hover:translate-y-0
+                    transition-all duration-500
+                "
+                >
+                View Details <ArrowRight size={18} />
+                </div>
             </div>
           </div>
         ))}

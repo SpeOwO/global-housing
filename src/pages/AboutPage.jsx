@@ -1,9 +1,5 @@
 import { Award, ShieldCheck, Globe, Users, MapPin } from 'lucide-react';
 
-/**
- * [4. ABOUT US PAGE COMPONENTS]
- */
-
 const AboutPage = ({ navigate }) => (
   <div className="w-full text-left animate-in fade-in duration-500">
     {/* Vision Section */}
@@ -18,7 +14,7 @@ const AboutPage = ({ navigate }) => (
           <p className="text-lg md:text-2xl font-bold text-gray-300 max-w-3xl leading-relaxed mx-auto lg:mx-0 text-left break-keep">글로벌 하우징은 국경을 넘어 모든 고객이 일본에서 새로운 삶의 시작을 안심하고 설계할 수 있도록 돕는 신뢰의 가교입니다.</p>
         </div>
       </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block text-[#D4C4A8] z-20">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce md:block text-[#D4C4A8] z-20">
         <div className="flex flex-col items-center gap-2">
           <span className="text-[10px] font-black tracking-widest uppercase">Scroll</span>
           <div className="w-px h-16 bg-gradient-to-b from-[#D4C4A8] to-transparent"></div>
@@ -26,7 +22,7 @@ const AboutPage = ({ navigate }) => (
       </div>
     </section>
 
-    <section className="bg-white min-h-screen flex items-center py-24 border-b border-[#F0EFEA]">
+    <section className="bg-white min-h-screen flex items-center py-24 overflow-hidden border-b border-[#F0EFEA]">
       <div className="w-full px-8 md:px-16 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-10">
@@ -91,7 +87,7 @@ const AboutPage = ({ navigate }) => (
     </section>
 
     {/* CEO Message */}
-    <section className="bg-[#FAF9F6] min-h-screen flex items-center py-24">
+    <section className="bg-[#FAF9F6] min-h-screen flex items-center py-24 overflow-hidden">
       <div className="w-full px-8 md:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-20 items-center text-center lg:text-left">
           <div className="w-full lg:w-1/2 relative">
