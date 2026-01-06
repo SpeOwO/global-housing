@@ -75,7 +75,7 @@ const Navbar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
     <div className="w-full px-8 md:px-16 h-20 flex justify-between items-center">
       <div className="flex items-center gap-3 cursor-pointer shrink-0" onClick={() => navigate('landing')}>
         <img 
-          src="/src/assets/globalhousing.png" 
+          src="/globalhousing.png" 
           alt="글로벌 하우징 로고" 
           className="h-10 md:h-12 w-auto object-contain"
           onError={(e) => {
@@ -180,7 +180,7 @@ const LandingPage = ({ navigate, scrollToSection }) => (
           ].map((step) => (
             <div key={step.id} className="flex flex-col items-center group px-0 relative text-center">
               <div className="w-full max-w-[180px] aspect-square flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 px-1 mx-auto">
-                <img src={`/src/assets/step${step.id}.png`} alt={step.title} className="w-full h-full object-contain" onError={(e) => { e.target.src = "https://via.placeholder.com/250?text=Step" + step.id; }} />
+                <img src={`/step${step.id}.png`} alt={step.title} className="w-full h-full object-contain" onError={(e) => { e.target.src = "https://via.placeholder.com/250?text=Step" + step.id; }} />
               </div>
               <div className="mt-2 text-center w-full px-1">
                 <h4 className="text-sm lg:text-base font-black text-[#4A4238] uppercase tracking-tighter leading-tight break-keep">{step.title}</h4>
@@ -299,7 +299,7 @@ const AboutPage = ({ navigate }) => (
         <div className="relative group isolate translate-z-0">
           <div className="bg-[#FAF9F6] p-4 rounded-[4rem] shadow-2xl overflow-hidden">
             <div className="relative aspect-[21/9] md:aspect-[2.4/1] w-full rounded-[3rem] overflow-hidden text-center lg:text-left mx-auto lg:mx-0 text-left">
-              <img src="/src/assets/office.jpg" alt="신주쿠 미라이나 타워 전경" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]" />
+              <img src="/office.jpg" alt="신주쿠 미라이나 타워 전경" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-12 text-left">
                  <p className="text-white text-xl md:text-3xl font-black tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-700">A New Hub for Global Success in Shinjuku</p>
               </div>
@@ -493,7 +493,7 @@ const ContactPage = () => (
           </div>
           <div className="bg-white p-4 rounded-[4rem] shadow-xl">
             <div className="aspect-video bg-gray-100 rounded-[3rem] flex items-center justify-center overflow-hidden">
-               <img src="/src/assets/office.jpg" alt="Miraina Tower" className="w-full h-full object-cover" />
+               <img src="/office.jpg" alt="Miraina Tower" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -511,7 +511,7 @@ const Footer = ({ navigate }) => (
     <div className="w-full px-8 md:px-16 text-center lg:text-left text-center">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-16 mb-16 text-center lg:text-left">
         <div className="flex items-center gap-8 cursor-pointer mx-auto lg:mx-0 text-center lg:text-left" onClick={() => navigate('landing')}>
-          <img src="/src/assets/long_globalhousing.png" alt="Global Housing Logo" className="h-8 md:h-10 w-auto object-contain text-center" onError={(e) => { e.target.style.display = 'none'; }} />
+          <img src="/long_globalhousing.png" alt="Global Housing Logo" className="h-8 md:h-10 w-auto object-contain text-center" onError={(e) => { e.target.style.display = 'none'; }} />
         </div>
         <div className="flex flex-wrap justify-center gap-12 text-lg font-black uppercase tracking-widest text-gray-400 mx-auto lg:mx-0 text-center lg:text-left">
           <button onClick={() => navigate('about')} className="hover:text-[#4A4238] transition-colors leading-none text-gray-400">회사 소개</button>
@@ -569,7 +569,7 @@ const App = () => {
       
       <Navbar currentPage={currentPage} navigate={navigate} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
       
-      <main className="w-full">
+      <main className="w-full">   
         {currentPage === 'landing' && <LandingPage navigate={navigate} scrollToSection={scrollToSection} />}
         {currentPage === 'about' && <AboutPage navigate={navigate} />}
         {currentPage === 'contact' && <ContactPage />}
