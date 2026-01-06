@@ -141,7 +141,7 @@ const LandingPage = ({ navigate, scrollToSection }) => (
           { id: 'rental-process', title: 'Rent', sub: '임대 서비스', desc: '일본 생활의 시작, 체계적인 임대 프로세스', icon: Building2, img: 'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&q=80&w=1000' },
           { id: 'sale-section', title: 'Sale', sub: '매매 서비스', desc: '수익성 높은 일본 부동산 투자 가이드', icon: Home, img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000' }
         ].map((card, i) => (
-          <div key={i} className="relative h-[600px] group overflow-hidden rounded-[3rem] cursor-pointer shadow-2xl transform transition-all duration-700 hover:-translate-y-4 isolate translate-z-0" onClick={() => scrollToSection(card.id)}>
+          <div key={i} className="relative h-[480px] group overflow-hidden rounded-[3rem] cursor-pointer shadow-2xl transform transition-all duration-700 hover:-translate-y-4 isolate translate-z-0" onClick={() => scrollToSection(card.id)}>
             <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] group-hover:scale-110" style={{ backgroundImage: `url(${card.img})` }}></div>
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-6 text-center px-10">
