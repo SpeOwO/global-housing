@@ -19,7 +19,7 @@ const PartnersPage = () => {
       <section className="bg-white pt-40 pb-20 border-b border-[#F0EFEA] text-center">
         <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center text-center">
           <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block mb-4 text-center">Our Network</span>
-          <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center break-keep">Official Partners</h2>
+          <h2 className="text-5xl md:text-7xl font-black text-[#4A4238] uppercase tracking-widest leading-none text-center break-keep">Official<br></br>Partners</h2>
           <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full text-center"></div>
           <p className="mt-8 text-xl text-gray-500 font-bold max-w-2xl mx-auto text-center text-center break-keep">글로벌 하우징과 함께 더 높은 가치를 만들어가는 검증된 파트너사들을 소개합니다.</p>
         </div>
