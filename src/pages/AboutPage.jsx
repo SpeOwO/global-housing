@@ -10,7 +10,7 @@ const AboutPage = ({ navigate }) => (
       <div className="relative w-full px-8 md:px-16 lg:px-24 z-10 text-center lg:text-left text-left">
         <div className="max-w-5xl space-y-8 mx-auto lg:mx-0 text-left">
           <span className="inline-block text-center text-[#D4C4A8] font-black tracking-[0.5em] text-xs uppercase px-4 py-2 border border-[#D4C4A8]/30 rounded-full mb-4">Our vision</span>
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-white leading-none tracking-tighter text-left break-keep">Connecting <br /><span className="text-[#D4C4A8]">Global Lives</span></h1>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-none tracking-tighter text-left break-keep">Connecting <br /><span className="text-[#D4C4A8]">Global Lives</span></h1>
           <p className="text-lg md:text-2xl font-bold text-gray-300 max-w-3xl leading-relaxed mx-auto lg:mx-0 text-left break-keep">글로벌 하우징은 국경을 넘어 모든 고객이 일본에서 새로운 삶의 시작을 안심하고 설계할 수 있도록 돕는 신뢰의 가교입니다.</p>
         </div>
       </div>
