@@ -45,7 +45,6 @@ const ContactPage = () => (
         </div>
       </div>
     </section>
-
     <section className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-8 md:px-16 text-center text-center text-center">
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 text-center md:text-left text-center">
@@ -54,21 +53,51 @@ const ContactPage = () => (
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-center">
           {[
-            { name: 'Instagram', desc: '최신 매물 정보와 일본 생활 트렌드', icon: Instagram, color: 'text-pink-600' },
-            { name: 'YouTube', desc: '생생한 매물 투어 및 현지 생활 브이로그', icon: Youtube, color: 'text-red-600' },
-            { name: 'Naver Blog', desc: '전문적인 일본 부동산 시장 분석 및 가이드', icon: NaverIcon, color: 'text-green-600' }
-          ].map((media, i) => (
-            <div key={i} className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 text-center text-center text-center">
-              <media.icon size={48} className={`${media.color} group-hover:text-white transition-colors mb-6 text-center mx-auto text-center`} />
-              <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2 text-center break-keep">{media.name}</h4>
-              <p className="text-gray-500 
-              \
-              group-hover:text-white/70 font-bold mb-6 text-center text-center break-keep">{media.desc}</p>
-              <div className="inline-flex items-center gap-2 text-[#D4C4A8] font-black text-sm uppercase tracking-widest text-center">
-                Visit Channel <ExternalLink size={16} />
-              </div>
+          {
+            name: 'Instagram', desc: '최신 매물 정보와 일본 생활 트렌드',
+            icon: Instagram,
+            color: 'text-pink-600',
+            link: 'https://www.instagram.com/global_housing_korea/'
+          },
+          {
+            name: 'YouTube',
+            desc: '생생한 매물 투어 및 현지 생활 브이로그',
+            icon: Youtube,
+            color: 'text-red-600',
+            link: 'https://www.youtube.com/@globalhousing'
+          },
+          {
+            name: 'Naver Blog',
+            desc: '전문적인 일본 부동산 시장 분석 및 가이드',
+            icon: NaverIcon,
+            color: 'text-green-600',
+            link: 'https://blog.naver.com/글로벌하우징'
+          }
+        ].map((media, i) => (
+          <a
+            key={i}
+            href={media.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#FAF9F6] p-10 rounded-[3rem] border border-[#F0EFEA]
+                      hover:bg-[#4A4238] group transition-all duration-500
+                      text-center block"
+          >
+            <media.icon
+              size={48}
+              className={`${media.color} group-hover:text-white transition-colors mb-6 mx-auto`}
+            />
+            <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2 break-keep">
+              {media.name}
+            </h4>
+            <p className="text-gray-500 group-hover:text-white/70 font-bold mb-6 break-keep">
+              {media.desc}
+            </p>
+            <div className="inline-flex items-center gap-2 text-[#D4C4A8] font-black text-sm uppercase tracking-widest">
+              Visit Channel <ExternalLink size={16} />
             </div>
-          ))}
+          </a>
+        ))}
         </div>
       </div>
     </section>
