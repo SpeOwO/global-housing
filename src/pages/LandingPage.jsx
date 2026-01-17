@@ -1,4 +1,5 @@
-import { ArrowRight, Home, Building2, Building, UserCheck, HeartHandshake } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Home, Building2, Building, UserCheck, HeartHandshake, MessageCircle, HelpCircle, CheckCircle2 } from 'lucide-react';
 
 /**
  * [3. LANDING PAGE COMPONENT]
@@ -23,14 +24,14 @@ const LandingPage = ({ navigate, scrollToSection }) => (
           <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-4">
             <button onClick={() => navigate('about')} className="inline-flex items-center justify-center bg-white border-2 border-[#4A4238] text-[#4A4238] px-12 py-5 rounded-2xl font-bold text-xl hover:bg-[#4A4238] hover:text-white transition-all shadow-lg min-w-[200px]">알아보기</button>
             <button
-            onClick={() => navigate('contact')}
-            className="inline-flex items-center justify-center gap-3
+              onClick={() => navigate('contact')}
+              className="inline-flex items-center justify-center gap-3
                       bg-[#D4C4A8] text-[#4A4238] border-2 border-[#4A4238]
                       px-12 py-5 rounded-2xl font-bold text-xl
                       hover:bg-[#4A4238] hover:text-white
                       transition-all shadow-xl min-w-[200px]"
             >
-            문의하기 <ArrowRight size={24} />
+              문의하기 <ArrowRight size={24} />
             </button>
           </div>
         </div>
@@ -38,7 +39,7 @@ const LandingPage = ({ navigate, scrollToSection }) => (
     </section>
 
     {/* Rent/Sale Cards */}
-    <section className="bg-white min-h-screen flex items-center py-20 border-b border-[#F0EFEA]">
+    <section className="bg-[#FAF9F6] min-h-screen flex items-center py-20 border-b border-[#F0EFEA]">
       <div className="w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-10">
         {[
           { id: 'rental-process', title: 'Rent', sub: '임대 서비스', desc: '일본 생활의 시작, 체계적인 임대 프로세스', icon: Building2, img: 'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&q=80&w=1000' },
@@ -74,7 +75,7 @@ const LandingPage = ({ navigate, scrollToSection }) => (
     </section>
 
     {/* Rental Process */}
-    <section id="rental-process" className="bg-[#FAF9F6] min-h-screen flex items-center py-20 border-b border-[#F0EFEA]">
+    <section id="rental-process" className="bg-white min-h-screen flex items-center py-20 border-b border-[#F0EFEA]">
       <div className="w-full px-4 md:px-10 lg:px-16">
         <div className="text-center mb-16">
           <span className="text-[#D4C4A8] font-black tracking-[0.4em] text-sm uppercase block mb-2">How it works</span>
@@ -104,40 +105,127 @@ const LandingPage = ({ navigate, scrollToSection }) => (
       </div>
     </section>
 
-    {/* Sale Service */}
-    <section id="sale-section" className="bg-white min-h-screen flex items-center py-24 overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#FAF9F6] -z-0 hidden lg:block"></div>
-      <div className="w-full px-8 md:px-16 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
-        <div className="space-y-12 text-center lg:text-left">
-          <div className="space-y-6">
+    {/* Sale Service (Redesigned) */}
+    <section id="sale-section" className="bg-[#FAF9F6] min-h-screen flex items-center py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-[#FAF9F6] -z-0 hidden lg:block"></div>
+      
+      <div className="w-full px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start relative z-10">
+        
+        {/* Left Column: Investment Guide & Premium Asset (Booking) */}
+        <div className="space-y-12 lg:sticky lg:top-24">
+          <div className="space-y-6 text-center lg:text-left">
             <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block">Investment Guide</span>
-            <h2 className="text-6xl md:text-8xl font-black text-[#4A4238] uppercase tracking-widest leading-none break-keep">Sale<br />Service</h2>
+            <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] uppercase tracking-widest leading-none break-keep">Sale<br />Service</h2>
             <div className="w-32 h-2 bg-[#4A4238] rounded-full mx-auto lg:mx-0"></div>
           </div>
-          <p className="text-gray-600 leading-[2] text-xl md:text-2xl font-bold max-w-2xl mx-auto lg:mx-0 break-keep">단순한 매매를 넘어, 일본 부동산 시장의 흐름을 분석하고<br /><span className="text-[#4A4238]">최적의 자산 가치 창출</span>을 위한 토탈 솔루션을 제안합니다.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
-            {[{ title: "전문가 컨설팅", desc: "15년 경력 투자 매니저 배정", icon: UserCheck }, { title: "사후 관리 서비스", desc: "임대 관리 및 세무 업무 지원", icon: HeartHandshake }].map((box, i) => (
-              <div key={i} className="p-10 bg-[#FAF9F6] rounded-[2.5rem] border border-[#F0EFEA] hover:bg-[#4A4238] group transition-all duration-500 shadow-lg hover:shadow-2xl text-center lg:text-left">
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#D4C4A8] transition-all mx-auto lg:mx-0 text-center lg:text-left"><box.icon size={28} className="text-[#4A4238] group-hover:text-white" /></div>
-                <h4 className="text-2xl font-black text-[#4A4238] group-hover:text-white mb-2 leading-none break-keep">{box.title}</h4>
-                <p className="text-gray-500 group-hover:text-white/70 text-base font-bold break-keep">{box.desc}</p>
-              </div>
-            ))}
+          
+          <p className="text-gray-600 leading-[2] text-xl md:text-2xl font-bold break-keep text-center lg:text-left">
+            단순한 매매를 넘어, 일본 부동산 시장의 흐름을 분석하고<br />
+            <span className="text-[#4A4238]">최적의 자산 가치 창출</span>을 위한<br />
+            토탈 솔루션을 제안합니다.
+          </p>
+
+          {/* Premium Asset Card (Moved to Left Bottom) */}
+          <div className="mt-8 bg-[#4A4238] rounded-[2.5rem] p-8 md:p-10 shadow-2xl relative overflow-hidden group">
+             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4C4A8]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-[#D4C4A8]/20 transition-all duration-700"></div>
+             <div className="relative z-10 flex flex-col gap-6 text-center lg:text-left">
+                 <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-6">
+                    <div className="bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/10 shrink-0">
+                        <Building size={32} className="text-[#D4C4A8]" strokeWidth={1.5} />
+                    </div>
+                    <div className="space-y-1">
+                        <h3 className="text-2xl font-black text-white uppercase tracking-tight leading-none">Premium Asset</h3>
+                        <p className="text-[#D4C4A8] font-bold tracking-widest text-xs uppercase">Management Strategy</p>
+                    </div>
+                 </div>
+                 <p className="text-white/70 text-sm font-medium leading-relaxed break-keep text-center lg:text-left">
+                     전문가와 함께하는 실패 없는 일본 부동산 투자,<br className="hidden sm:block"/>지금 바로 상담받아보세요.
+                 </p>
+                 <button onClick={() => navigate('contact')} className="w-full bg-[#D4C4A8] text-[#4A4238] px-8 py-4 rounded-xl font-bold text-base hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2">
+                     상담 예약하기 <ArrowRight size={16} />
+                 </button>
+             </div>
           </div>
         </div>
-        <div className="relative text-center">
-           <div className="bg-white p-6 rounded-[5rem] shadow-[0_50px_100px_-20px_rgba(74,66,56,0.3)] relative z-10 mx-auto max-w-lg lg:max-w-none border border-[#F0EFEA]">
-             <div className="bg-[#4A4238] aspect-square rounded-[4rem] flex flex-col items-center justify-center p-12 space-y-10 text-white shadow-inner">
-               <Building size={100} className="text-[#D4C4A8]" strokeWidth={1} />
-               <div className="space-y-4">
-                 <h3 className="text-4xl font-black uppercase tracking-tight leading-none break-keep">Premium Asset</h3>
-                 <p className="text-lg font-bold text-[#D4C4A8] uppercase tracking-[0.2em] break-keep">Management Strategy</p>
-               </div>
-               <button onClick={() => navigate('contact')} className="w-full bg-[#D4C4A8] text-[#4A4238] py-6 rounded-3xl font-black text-xl uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-2xl text-nowrap px-4">상담 예약하기</button>
-             </div>
-           </div>
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-[#D4C4A8]/10 rounded-full -z-10 animate-pulse"></div>
+
+        {/* Right Column: FAQ List (Only) */}
+        <div className="flex flex-col gap-8 w-full mt-8 lg:mt-0">
+            {/* FAQ Header */}
+            <div className="flex items-center gap-3 px-2 mb-2 lg:mt-6">
+                <span className="bg-[#EFEBE4] text-[#4A4238] font-black px-3 py-1 rounded-full text-[10px] tracking-widest uppercase">FAQ</span>
+                <h3 className="text-xl font-black text-[#4A4238]">이런 고민이 있으신가요?</h3>
+            </div>
+
+            {/* FAQ List */}
+            <div className="space-y-6">
+                {/* FAQ Item 1 */}
+                <div className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg border border-[#F0EFEA] hover:border-[#D4C4A8] transition-all group hover:-translate-y-1">
+                    <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 shrink-0 border-2 border-white shadow-md">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" alt="User" className="w-full h-full object-cover" />
+                        </div>
+                        <div className="space-y-3 flex-1">
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                                <span className="text-xs font-bold text-gray-400">한국 거주 투자자 김OO 님</span>
+                                <HelpCircle size={18} className="text-[#D4C4A8]" />
+                            </div>
+                            <h4 className="text-lg md:text-xl font-black text-[#4A4238] leading-tight break-keep">"일본 거주 비자가 없어도 매매가 가능한가요?"</h4>
+                            <div className="bg-[#FAF9F6] p-5 rounded-2xl mt-2">
+                                <p className="text-gray-600 text-sm font-bold leading-relaxed break-keep">
+                                    <span className="text-[#4A4238] mr-2 font-black">A.</span>
+                                    네, 가능합니다. 비거주자 명의로도 등기 등록 및 소유권 행사가 완전히 보장됩니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQ Item 2 */}
+                <div className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg border border-[#F0EFEA] hover:border-[#D4C4A8] transition-all group hover:-translate-y-1">
+                    <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 shrink-0 border-2 border-white shadow-md">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="User" className="w-full h-full object-cover" />
+                        </div>
+                        <div className="space-y-3 flex-1">
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                                <span className="text-xs font-bold text-gray-400">주재원 준비중 이OO 님</span>
+                                <HelpCircle size={18} className="text-[#D4C4A8]" />
+                            </div>
+                            <h4 className="text-lg md:text-xl font-black text-[#4A4238] leading-tight break-keep">"일본 은행에서 대출을 받을 수 있나요?"</h4>
+                            <div className="bg-[#FAF9F6] p-5 rounded-2xl mt-2">
+                                <p className="text-gray-600 text-sm font-bold leading-relaxed break-keep">
+                                    <span className="text-[#4A4238] mr-2 font-black">A.</span>
+                                    비거주자 대출 상품은 제한적이나, 한국계 은행 동경 지점 등을 통해 대출 연계가 가능합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQ Item 3 */}
+                <div className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg border border-[#F0EFEA] hover:border-[#D4C4A8] transition-all group hover:-translate-y-1">
+                    <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 shrink-0 border-2 border-white shadow-md">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" alt="User" className="w-full h-full object-cover" />
+                        </div>
+                        <div className="space-y-3 flex-1">
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                                <span className="text-xs font-bold text-gray-400">임대 수익 희망 박OO 님</span>
+                                <HelpCircle size={18} className="text-[#D4C4A8]" />
+                            </div>
+                            <h4 className="text-lg md:text-xl font-black text-[#4A4238] leading-tight break-keep">"구매 후 관리는 어떻게 해야 하나요?"</h4>
+                            <div className="bg-[#FAF9F6] p-5 rounded-2xl mt-2">
+                                <p className="text-gray-600 text-sm font-bold leading-relaxed break-keep">
+                                    <span className="text-[#4A4238] mr-2 font-black">A.</span>
+                                    글로벌 하우징의 PM(Property Management) 팀이 임차인 모집부터 월세 징수, 시설 관리까지 대행해 드립니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
       </div>
     </section>
   </div>
