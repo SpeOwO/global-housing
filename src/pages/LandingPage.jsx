@@ -22,7 +22,16 @@ const LandingPage = ({ navigate, scrollToSection }) => (
           </div>
           <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-4">
             <button onClick={() => navigate('about')} className="inline-flex items-center justify-center bg-white border-2 border-[#4A4238] text-[#4A4238] px-12 py-5 rounded-2xl font-bold text-xl hover:bg-[#4A4238] hover:text-white transition-all shadow-lg min-w-[200px]">알아보기</button>
-            <button onClick={() => navigate('contact')} className="inline-flex items-center justify-center gap-3 bg-[#4A4238] text-white px-12 py-5 rounded-2xl font-bold text-xl hover:bg-[#3d362d] transition-all shadow-2xl min-w-[200px]">문의하기 <ArrowRight size={24} /></button>
+            <button
+            onClick={() => navigate('contact')}
+            className="inline-flex items-center justify-center gap-3
+                      bg-[#D4C4A8] text-[#4A4238] border-2 border-[#4A4238]
+                      px-12 py-5 rounded-2xl font-bold text-xl
+                      hover:bg-[#4A4238] hover:text-white
+                      transition-all shadow-xl min-w-[200px]"
+            >
+            문의하기 <ArrowRight size={24} />
+            </button>
           </div>
         </div>
       </div>
