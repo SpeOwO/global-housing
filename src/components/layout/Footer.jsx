@@ -24,7 +24,7 @@ const Footer = ({ navigate }) => (
         </div>
       </div>
       <div className="pt-16 border-t border-[#F0EFEA] text-center text-gray-300 text-xs font-bold uppercase tracking-[0.6em] text-center text-center">
-        © 2024 Global Housing. All rights reserved.
+        © 2024 Global Housing. <br></br>All rights reserved.
       </div>
     </div>
   </footer>
