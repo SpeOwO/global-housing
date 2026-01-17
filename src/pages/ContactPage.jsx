@@ -64,14 +64,14 @@ const ContactPage = () => (
             desc: '생생한 매물 투어 및 현지 생활 브이로그',
             icon: Youtube,
             color: 'text-red-600',
-            link: 'https://www.youtube.com/@globalhousing'
+            link: 'https://www.youtube.com/@GlobalHousing_KR'
           },
           {
             name: 'Naver Blog',
             desc: '전문적인 일본 부동산 시장 분석 및 가이드',
             icon: NaverIcon,
             color: 'text-green-600',
-            link: 'https://blog.naver.com/글로벌하우징'
+            link: 'https://blog.naver.com/global-housing'
           }
         ].map((media, i) => (
           <a
