@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Home, Building2, Building, UserCheck, HeartHandshake, MessageCircle, HelpCircle, CheckCircle2 } from 'lucide-react';
 
 /**
@@ -6,6 +6,18 @@ import { ArrowRight, Home, Building2, Building, UserCheck, HeartHandshake, Messa
  */
 
 const LandingPage = ({ navigate, scrollToSection }) => {
+
+  // State to manage flipped cards on mobile/click interactions
+  const [flippedCards, setFlippedCards] = useState([]);
+
+  // Function to toggle card flip state
+  const toggleFlip = (id) => {
+    setFlippedCards(prev => 
+      prev.includes(id) 
+        ? prev.filter(cardId => cardId !== id) 
+        : [...prev, id]
+    );
+  };
 
   // FAQ Data List
   const faqList = [
@@ -143,7 +155,7 @@ const LandingPage = ({ navigate, scrollToSection }) => {
         <div className="w-full px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch relative z-10">
           
           {/* Left Column: Investment Guide & Premium Asset (Flex Col + Justify Between) */}
-          <div className="flex flex-col justify-between h-full gap-12 lg:gap-0">
+          <div className="flex flex-col justify-between h-full gap-12 lg:gap-12">
             {/* Top Text */}
             <div className="space-y-6 text-center lg:text-left">
               <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block">Investment Guide</span>
@@ -151,7 +163,7 @@ const LandingPage = ({ navigate, scrollToSection }) => {
               <div className="w-32 h-2 bg-[#4A4238] rounded-full mx-auto lg:mx-0"></div>
               <p className="text-gray-600 leading-[2] text-xl md:text-2xl font-bold break-keep text-center lg:text-left mt-6">
                 단순한 매매를 넘어, 일본 부동산 시장의 흐름을 분석하고<br />
-                <span className="text-[#4A4238]">최적의 자산 가치 창출</span>을 위한<br />
+                <span className="text-[#4A4238]">최적의 자산 가치 창출</span>을 위한
                 토탈 솔루션을 제안합니다.
               </p>
             </div>
@@ -190,38 +202,46 @@ const LandingPage = ({ navigate, scrollToSection }) => {
               {/* FAQ List with Flip Interaction */}
               <div className="flex flex-col justify-between h-full gap-4">
                 {faqList.map((item) => (
-                  <div key={item.id} className="group [perspective:1000px] h-48 w-full cursor-pointer">
-                    <div className="relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-lg rounded-[2rem] hover:shadow-2xl">
+                  <div 
+                    key={item.id} 
+                    className="group [perspective:1000px] h-36 w-full cursor-pointer"
+                    onClick={() => toggleFlip(item.id)}
+                  >
+                    <div 
+                      className={`relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] shadow-lg rounded-[2rem] hover:shadow-2xl 
+                        ${flippedCards.includes(item.id) ? '[transform:rotateY(180deg)]' : 'lg:group-hover:[transform:rotateY(180deg)]'}`
+                      }
+                    >
                       
                       {/* Front Face: Question */}
-                      <div className="absolute inset-0 h-full w-full bg-white rounded-[2rem] p-5 md:p-6 border border-[#F0EFEA] [backface-visibility:hidden] flex flex-col justify-center">
-                          <div className="flex items-start gap-4">
-                              <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 shrink-0 border-2 border-white shadow-md">
+                      <div className="absolute inset-0 h-full w-full bg-white rounded-[2rem] p-4 md:p-5 border border-[#F0EFEA] [backface-visibility:hidden] flex flex-col justify-center">
+                          <div className="flex items-start gap-3">
+                              <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100 shrink-0 border-2 border-white shadow-md">
                                   <img src={item.img} alt="User" className="w-full h-full object-cover" />
                               </div>
-                              <div className="space-y-2 flex-1">
+                              <div className="space-y-1 flex-1">
                                   <div className="flex flex-wrap items-center justify-between gap-2">
-                                      <span className="text-[11px] font-bold text-gray-400">{item.role} {item.name}</span>
-                                      <HelpCircle size={18} className="text-[#D4C4A8]" />
+                                      <span className="text-[10px] font-bold text-gray-400">{item.role} {item.name}</span>
+                                      <HelpCircle size={16} className="text-[#D4C4A8]" />
                                   </div>
-                                  <h4 className="text-lg font-black text-[#4A4238] leading-snug break-keep">{item.q}</h4>
-                                  <div className="text-xs text-[#D4C4A8] font-bold mt-1 animate-pulse flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                      답변 확인하기 <ArrowRight size={12}/>
+                                  <h4 className="text-base font-black text-[#4A4238] leading-snug break-keep">{item.q}</h4>
+                                  <div className="text-[10px] text-[#D4C4A8] font-bold mt-1 animate-pulse flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                      답변 확인하기 <ArrowRight size={10}/>
                                   </div>
                               </div>
                           </div>
                       </div>
 
                       {/* Back Face: Answer */}
-                      <div className="absolute inset-0 h-full w-full bg-[#4A4238] rounded-[2rem] p-6 [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center items-center text-center border border-[#4A4238] overflow-hidden">
+                      <div className="absolute inset-0 h-full w-full bg-[#4A4238] rounded-[2rem] p-5 [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center items-center text-center border border-[#4A4238] overflow-hidden">
                           {/* Decorative Background Blur */}
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4C4A8]/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4C4A8]/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
                           
                           <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                            <div className="bg-white/10 p-2 rounded-full mb-3 inline-flex items-center justify-center">
-                                <CheckCircle2 size={20} className="text-[#D4C4A8]" />
+                            <div className="bg-white/10 p-1.5 rounded-full mb-2 inline-flex items-center justify-center">
+                                <CheckCircle2 size={16} className="text-[#D4C4A8]" />
                             </div>
-                            <p className="text-white/95 text-sm font-bold leading-relaxed break-keep">
+                            <p className="text-white/95 text-xs font-bold leading-relaxed break-keep">
                                 {item.a}
                             </p>
                           </div>
