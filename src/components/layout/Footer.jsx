@@ -35,7 +35,17 @@ const Footer = ({ navigate }) => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-12 text-lg font-black uppercase tracking-widest text-gray-400 mx-auto lg:mx-0">
+          <div
+            className="
+            flex flex-nowrap justify-center
+            gap-6 md:gap-12
+            text-sm md:text-lg
+            font-black uppercase
+            tracking-[0.15em] md:tracking-widest
+            text-gray-400
+            whitespace-nowrap
+          "
+          >
             <button
               onClick={() => navigate && navigate('about')}
               className="hover:text-[#4A4238] transition-colors leading-none"
