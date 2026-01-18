@@ -67,7 +67,7 @@ const PartnersPage = () => {
             Official<br></br>Partners
           </h2>
           <div className="w-24 h-1.5 bg-[#D4C4A8] mx-auto mt-10 rounded-full text-center"></div>
-          <p className="mt-8 text-xl text-gray-500 font-bold max-w-2xl mx-auto text-center text-center break-keep">
+          <p className="mt-8 text-xl text-gray-500 font-bold max-w-2xl mx-auto text-center text-center break-keep whitespace-nowrap">
             글로벌 하우징과 함께 더 높은 가치를 만들어가는 검증된 파트너사들을
             소개합니다.
           </p>
