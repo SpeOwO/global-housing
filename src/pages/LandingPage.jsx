@@ -50,7 +50,10 @@ const LandingPage = ({ navigate, scrollToSection }) => {
   return (
     <div className="w-full animate-in fade-in duration-500">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-24 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522444195799-478538b28823?auto=format&fit=crop&q=80&w=2000')", backgroundAttachment: 'fixed' }}>
+      <section 
+        className="relative min-h-screen flex items-center pt-24 bg-cover bg-center bg-scroll md:bg-fixed" 
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522444195799-478538b28823?auto=format&fit=crop&q=80&w=2000')" }}
+      >
         <div className="absolute inset-0 bg-white/50"></div>
         <div className="relative w-full px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
           <div className="space-y-10 max-w-4xl text-center lg:text-left">
@@ -225,8 +228,8 @@ const LandingPage = ({ navigate, scrollToSection }) => {
                                       <HelpCircle size={16} className="text-[#D4C4A8]" />
                                   </div>
                                   <h4 className="text-base font-black text-[#4A4238] leading-snug break-keep">{item.q}</h4>
-                                  <div className="text-[10px] text-[#D4C4A8] font-bold mt-1 animate-pulse flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                      답변 확인하기 <ArrowRight size={10}/>
+                                  <div className="text-[10px] text-[#D4C4A8] font-bold mt-1 flex items-center gap-1 opacity-100">
+                                    답변 확인하기 <ArrowRight size={10}/>
                                   </div>
                               </div>
                           </div>
