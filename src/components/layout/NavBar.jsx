@@ -31,12 +31,6 @@ const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
           회사 소개
         </button>
         <button
-          onClick={() => navigate('partners')}
-          className={`text-base font-bold transition-colors ${currentPage === 'partners' ? 'text-[#D4C4A8]' : 'text-[#4A4238] hover:text-[#D4C4A8]'}`}
-        >
-          협력사
-        </button>
-        <button
           onClick={() => navigate('contact')}
           className={`text-base font-bold transition-colors ${currentPage === 'contact' ? 'text-[#D4C4A8]' : 'text-[#4A4238] hover:text-[#D4C4A8]'}`}
         >
@@ -59,12 +53,6 @@ const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
           className="text-left text-lg font-bold text-[#4A4238]"
         >
           회사 소개
-        </button>
-        <button
-          onClick={() => navigate('partners')}
-          className="text-left text-lg font-bold text-[#4A4238]"
-        >
-          협력사
         </button>
         <button
           onClick={() => navigate('contact')}

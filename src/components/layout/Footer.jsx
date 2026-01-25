@@ -4,9 +4,6 @@ import NaverIcon from '../icons/NaverIcon'
 /**
  * [7. FOOTER COMPONENT]
  */
-/**
- * [7. FOOTER COMPONENT]
- */
 const Footer = ({ navigate }) => {
   // 소셜 미디어 링크 이동 함수
   const openSocialLink = url => {
@@ -51,12 +48,6 @@ const Footer = ({ navigate }) => {
               className="hover:text-[#4A4238] transition-colors leading-none"
             >
               회사 소개
-            </button>
-            <button
-              onClick={() => navigate && navigate('partners')}
-              className="hover:text-[#4A4238] transition-colors leading-none"
-            >
-              협력사
             </button>
             <button
               onClick={() => navigate && navigate('contact')}

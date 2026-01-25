@@ -200,19 +200,24 @@ const AboutPage = ({ navigate }) => (
               <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block text-left">
                 Ceo Message
               </span>
-              <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] leading-tight text-left break-keep">
-                당신의 새로운 시작,
+              <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] leading-[3] text-left break-keep">
+                당신의 새로운 시작
                 <br />
                 글로벌 하우징이 함께합니다.
               </h2>
+              <h2 className="text-4xl leading-[2] bg-yellow-100">
+                테스트 문장입니다
+                <br />
+                테스트 문장입니다
+              </h2>
             </div>
-            <div className="space-y-8 text-lg text-gray-600 font-bold leading-relaxed italic text-center lg:text-left text-left break-keep">
-              <p>
+            <div className="space-y-10 text-lg text-gray-600 font-bold italic break-keep">
+              <p className="leading-[1.9]">
                 "일본에서의 첫 시작은 설렘만큼이나 두려움도 크다는 것을 잘 알고
                 있습니다. 언어와 문화의 장벽 앞에서 누구보다 진심으로
                 임하겠습니다."
               </p>
-              <p>
+              <p className="leading-[1.9]">
                 "우리는 고객이 일본 사회에 안정적으로 정착하고 더 큰 미래를 꿈꿀
                 수 있는 주거 기반을 제공하는 것에 자부심을 느낍니다."
               </p>
