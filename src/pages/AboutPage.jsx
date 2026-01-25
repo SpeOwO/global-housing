@@ -178,62 +178,6 @@ const AboutPage = ({ navigate }) => (
         </div>
       </div>
     </section>
-
-    {/* CEO Message */}
-    <section className="bg-[#FAF9F6] min-h-screen flex items-center py-24 overflow-hidden">
-      <div className="w-full px-8 md:px-16 lg:px-24">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-20 items-center text-center lg:text-left">
-          <div className="w-full lg:w-1/2 relative">
-            <div className="bg-white p-6 rounded-[5rem] shadow-2xl relative z-10 border border-[#F0EFEA]">
-              <div className="aspect-[3/4] rounded-[4rem] bg-gray-100 overflow-hidden text-center mx-auto lg:mx-0 text-center">
-                <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000"
-                  alt="CEO"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#D4C4A8]/10 rounded-full -z-0 blur-3xl text-center lg:text-left text-center lg:text-left"></div>
-          </div>
-          <div className="w-full lg:w-1/2 space-y-10 text-center lg:text-left text-left">
-            <div className="space-y-6 text-center lg:text-left text-left">
-              <span className="text-[#D4C4A8] font-black tracking-[0.5em] text-sm uppercase block text-left">
-                Ceo Message
-              </span>
-              <h2 className="text-4xl md:text-6xl font-black text-[#4A4238] leading-[3] text-left break-keep">
-                당신의 새로운 시작
-                <br />
-                글로벌 하우징이 함께합니다.
-              </h2>
-              <h2 className="text-4xl leading-[2] bg-yellow-100">
-                테스트 문장입니다
-                <br />
-                테스트 문장입니다
-              </h2>
-            </div>
-            <div className="space-y-10 text-lg text-gray-600 font-bold italic break-keep">
-              <p className="leading-[1.9]">
-                "일본에서의 첫 시작은 설렘만큼이나 두려움도 크다는 것을 잘 알고
-                있습니다. 언어와 문화의 장벽 앞에서 누구보다 진심으로
-                임하겠습니다."
-              </p>
-              <p className="leading-[1.9]">
-                "우리는 고객이 일본 사회에 안정적으로 정착하고 더 큰 미래를 꿈꿀
-                수 있는 주거 기반을 제공하는 것에 자부심을 느낍니다."
-              </p>
-            </div>
-            <div className="pt-6 border-t border-[#4A4238]/10 text-center lg:text-left">
-              <p className="text-2xl font-black text-[#4A4238] break-keep">
-                Global Housing Team
-              </p>
-              <p className="text-[#D4C4A8] font-black tracking-widest uppercase text-sm break-keep">
-                Global Real Estate Solution
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 )
 
