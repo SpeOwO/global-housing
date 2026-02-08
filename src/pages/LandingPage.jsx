@@ -318,13 +318,6 @@ const LandingPage = ({ navigate, scrollToSection }) => {
                     {/* Front Face: Question */}
                     <div className="absolute inset-0 h-full w-full bg-white rounded-[2rem] p-4 md:p-5 border border-[#F0EFEA] [backface-visibility:hidden] flex flex-col justify-center">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100 shrink-0 border-2 border-white shadow-md">
-                          <img
-                            src={item.img}
-                            alt="User"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
                         <div className="space-y-1 flex-1">
                           <div className="flex flex-wrap items-center justify-between gap-2">
                             <span className="text-[10px] font-bold text-gray-400">
