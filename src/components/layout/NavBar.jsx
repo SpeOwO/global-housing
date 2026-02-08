@@ -26,13 +26,23 @@ const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
       <div className="hidden md:flex items-center gap-10">
         <button
           onClick={() => navigate('about')}
-          className={`text-base font-bold transition-colors ${currentPage === 'about' ? 'text-[#D4C4A8]' : 'text-[#4A4238] hover:text-[#D4C4A8]'}`}
+          // 수정됨: 선택 시 진한 색(#4A4238), 미선택 시 연한 회색(gray-400)
+          className={`text-base font-bold transition-colors ${
+            currentPage === 'about'
+              ? 'text-[#4A4238] font-black' // 선택됨: 진한 갈색 + 더 굵게
+              : 'text-gray-400 hover:text-[#4A4238]' // 미선택: 회색 -> 호버 시 진한 갈색
+          }`}
         >
           회사 소개
         </button>
         <button
           onClick={() => navigate('contact')}
-          className={`text-base font-bold transition-colors ${currentPage === 'contact' ? 'text-[#D4C4A8]' : 'text-[#4A4238] hover:text-[#D4C4A8]'}`}
+          // 수정됨: 위와 동일한 로직 적용
+          className={`text-base font-bold transition-colors ${
+            currentPage === 'contact'
+              ? 'text-[#4A4238] font-black'
+              : 'text-gray-400 hover:text-[#4A4238]'
+          }`}
         >
           문의하기
         </button>
@@ -49,14 +59,25 @@ const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
     {isMenuOpen && (
       <div className="md:hidden bg-white border-t border-[#F0EFEA] py-8 px-8 flex flex-col gap-6 shadow-xl text-left">
         <button
-          onClick={() => navigate('about')}
-          className="text-left text-lg font-bold text-[#4A4238]"
+          onClick={() => {
+            navigate('about')
+            setIsMenuOpen(false) // 모바일에서는 클릭 후 메뉴 닫기 추가 (UX 권장)
+          }}
+          // 모바일 메뉴에도 동일한 색상 로직 적용
+          className={`text-left text-lg font-bold transition-colors ${
+            currentPage === 'about' ? 'text-[#4A4238]' : 'text-gray-400'
+          }`}
         >
           회사 소개
         </button>
         <button
-          onClick={() => navigate('contact')}
-          className="text-left text-lg font-bold text-[#4A4238]"
+          onClick={() => {
+            navigate('contact')
+            setIsMenuOpen(false)
+          }}
+          className={`text-left text-lg font-bold transition-colors ${
+            currentPage === 'contact' ? 'text-[#4A4238]' : 'text-gray-400'
+          }`}
         >
           문의하기
         </button>
