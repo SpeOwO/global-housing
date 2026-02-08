@@ -26,22 +26,21 @@ const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
       <div className="hidden md:flex items-center gap-10">
         <button
           onClick={() => navigate('about')}
-          // 수정됨: 선택 시 진한 색(#4A4238), 미선택 시 연한 회색(gray-400)
+          // 수정됨: 미선택 시 연한 베이지(#D4C4A8), 선택 시 진한 갈색(#4A4238)
           className={`text-base font-bold transition-colors ${
             currentPage === 'about'
-              ? 'text-[#4A4238] font-black' // 선택됨: 진한 갈색 + 더 굵게
-              : 'text-gray-400 hover:text-[#4A4238]' // 미선택: 회색 -> 호버 시 진한 갈색
+              ? 'text-[#4A4238] font-black' // 선택됨: 진하고 굵게
+              : 'text-[#D4C4A8] hover:text-[#4A4238]' // 미선택: 연한 베이지 -> 호버 시 진하게
           }`}
         >
           회사 소개
         </button>
         <button
           onClick={() => navigate('contact')}
-          // 수정됨: 위와 동일한 로직 적용
           className={`text-base font-bold transition-colors ${
             currentPage === 'contact'
               ? 'text-[#4A4238] font-black'
-              : 'text-gray-400 hover:text-[#4A4238]'
+              : 'text-[#D4C4A8] hover:text-[#4A4238]'
           }`}
         >
           문의하기
@@ -61,11 +60,11 @@ const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
         <button
           onClick={() => {
             navigate('about')
-            setIsMenuOpen(false) // 모바일에서는 클릭 후 메뉴 닫기 추가 (UX 권장)
+            setIsMenuOpen(false)
           }}
           // 모바일 메뉴에도 동일한 색상 로직 적용
           className={`text-left text-lg font-bold transition-colors ${
-            currentPage === 'about' ? 'text-[#4A4238]' : 'text-gray-400'
+            currentPage === 'about' ? 'text-[#4A4238]' : 'text-[#D4C4A8]'
           }`}
         >
           회사 소개
@@ -76,7 +75,7 @@ const NavBar = ({ currentPage, navigate, setIsMenuOpen, isMenuOpen }) => (
             setIsMenuOpen(false)
           }}
           className={`text-left text-lg font-bold transition-colors ${
-            currentPage === 'contact' ? 'text-[#4A4238]' : 'text-gray-400'
+            currentPage === 'contact' ? 'text-[#4A4238]' : 'text-[#D4C4A8]'
           }`}
         >
           문의하기
